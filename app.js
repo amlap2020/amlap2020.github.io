@@ -93,8 +93,8 @@ var PosterTableHeader = {
     view: function() {
         return m("thead", {class: "thead-dark"}, m("tr", [
             m("th", "ID"),
-            m("th", "Author(s)"),
-            m("th", "Title"),
+            m("th", "Title / Author(s)"),
+            // m("th", "Title"),
         ]))
     }
 }
@@ -102,14 +102,18 @@ var PosterTableHeader = {
 function PosterFactory(id, authors, title, links) {
     return {
         view: function() {
-            var a = authors.replace(/ \([^()]+\)/g, "").replace(/ \([^()]+\)/g, "").split("; ")
-            a = a.map(a => [m("a", {href: "#!/authors"}, a), ", "])
+            var a = authors.split("; ")
+            // var a = authors.replace(/ \([^()]+\)/g, "").replace(/ \([^()]+\)/g, "").split("; ")
+            // a = a.map(a => [m("a", {href: "#!/authors"}, a), ", "])
+            a = a.map(a => [a, ", "])
             a = a.flat()
             a.pop()
             return m("tr", [
                 m("td", m("a", {href: id+".pdf"}, "#" + id)),
-                m("td", a),
-                m("td", m("a", {href: id+".pdf"}, title)),
+                m("td", [
+                    m("a", {href: id+".pdf"}, title),
+                    m("br"),
+                    a]),
             ])
         }
     }
