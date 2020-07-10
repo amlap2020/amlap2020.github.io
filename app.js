@@ -55,6 +55,8 @@ function SessionFactory(s) {
             } else if (session.match(/– .+ break –/) || session.match(/Social chat/)) {
                 session = m("a", {href: chatlink}, session)
             }
+            if (s.id == null)
+                session = m("strong", session)
             return m("tr", [
                 m("td", s.start + "–" + s.end),
                 m("td", session),
