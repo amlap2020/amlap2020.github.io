@@ -91,13 +91,12 @@ function SessionsFactory(day, date) {
             }
             return [m(Navigation),
                     m("main", {class: "container"}, [
-                        m("h1", {class: "display-4"}, "Sessions Day " + day),
-                        m("p", {class: "lead"}, date),
-                        m("table", {class: "table table-sm table-striped"}, [
-                            m(SessionsTableHeader),
-                            m("tbody", l),
-                        ]),
-                    ])
+                        m("h1", {class: "display-4"}, "Sessions Day " + day),
+                        m("p", {class: "lead"}, date)]),
+                    m("table", {class: "table table-sm table-striped"}, [
+                        m(SessionsTableHeader),
+                        m("tbody", l),
+                    ]),
                    ]
         }
     }
@@ -152,9 +151,8 @@ function PosterSessionFactory(number, date) {
             return [m(Navigation),
                     m("main", {class: "container"}, [
                         m("h1", {class: "display-4"}, "Poster session " + number),
-                        m("p", {class: "lead"}, date),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", l)])
-                    ])
+                        m("p", {class: "lead"}, date)]),
+                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", l)])
                    ]
         }
     }
