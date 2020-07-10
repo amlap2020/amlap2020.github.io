@@ -10,9 +10,9 @@ var Navigation = {
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Talks"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/talks1"), href: "#!/talks1"}, "Talks day 1 (Sept 3)"),
-                   m("a", {class: x("/talks2"), href: "#!/talks2"}, "Talks day 2 (Sept 4)"),
-                   m("a", {class: x("/talks3"), href: "#!/talks3"}, "Talks day 3 (Sept 5)")])]),
+                   m("a", {class: x("/sessions1"), href: "#!/sessions1"}, "Talks day 1 (Sept 3)"),
+                   m("a", {class: x("/sessions2"), href: "#!/sessions2"}, "Talks day 2 (Sept 4)"),
+                   m("a", {class: x("/sessions3"), href: "#!/sessions3"}, "Talks day 3 (Sept 5)")])]),
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Posters"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
@@ -27,6 +27,22 @@ var Navigation = {
                      m.trust("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> <span class=\"navbar-toggler-icon\"></span> </button>"),
                      m("div", {class: "collapse navbar-collapse", id: "navbarNav"}, m("ul", {class: "navbar-nav"}, nav_items)),
                 ])
+    }
+}
+
+var Overview = {
+    view: function() {
+        return [m(Navigation),
+                m("main", {class: "container"}, [
+                    m("h1", {class: "display-4"}, "Main Menu"),
+                    m("p", {class: "lead"}, "3–5 September 2020"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, "Sessions day 1"), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_1"}, "Poster session day 1"), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions2"}, "Sessions day 2"), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_2"}, "Poster session day 2"), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions3"}, "Sessions day 3"), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, "Poster session day 3"),
+                ])]
     }
 }
 
@@ -65,7 +81,7 @@ function SessionFactory(s) {
     }
 }
 
-function TalksFactory(day, date) {
+function SessionsFactory(day, date) {
     return {
         view: function() {
             var l = []
@@ -75,7 +91,7 @@ function TalksFactory(day, date) {
             }
             return [m(Navigation),
                     m("main", {class: "container"}, [
-                        m("h1", {class: "display-4"}, "Talks Day " + day),
+                        m("h1", {class: "display-4"}, "Sessions Day " + day),
                         m("p", {class: "lead"}, date),
                         m("table", {class: "table table-sm table-striped"}, [
                             m(SessionsTableHeader),
@@ -87,9 +103,9 @@ function TalksFactory(day, date) {
     }
 }
 
-var Talks1 = TalksFactory(1, "Thursday, 3 September 2020")
-var Talks2 = TalksFactory(2, "Friday, 4 September 2020")
-var Talks3 = TalksFactory(3, "Saturday, 5 September 2020")
+var Sessions1 = SessionsFactory(1, "Thursday, 3 September 2020")
+var Sessions2 = SessionsFactory(2, "Friday, 4 September 2020")
+var Sessions3 = SessionsFactory(3, "Saturday, 5 September 2020")
 
 var PosterTableHeader = {
     view: function() {
@@ -152,10 +168,11 @@ var Authors = {
     }
 }
 
-m.route(root, "/talks1", {
-    "/talks1": Talks1,
-    "/talks2": Talks2,
-    "/talks3": Talks3,
+m.route(root, "/overview", {
+    "/overview": Overview,
+    "/sessions1": Sessions1,
+    "/sessions2": Sessions2,
+    "/sessions3": Sessions3,
     "/poster_session_1": PosterSession1,
     "/poster_session_2": PosterSession2,
     "/poster_session_3": PosterSession3,
