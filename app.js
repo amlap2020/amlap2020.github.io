@@ -112,7 +112,7 @@ var PosterTableHeader = {
         return m("thead", {class: "thead-dark"}, m("tr", [
             m("th", "ID"),
             m("th", "Title / Author(s)"),
-            // m("th", "Title"),
+            m("th", "Links"),
         ]))
     }
 }
@@ -132,6 +132,13 @@ function PosterFactory(id, authors, title, links) {
                     m("a", {href: id+".pdf"}, title),
                     m("br"),
                     a]),
+                m("td", {style: "text-align: center"}, [
+                    m("a", {style: "margin-bottom: 0.3em", class: "btn btn-link btn-sm", href: id + ".pdf"}, "abstract"),
+                    m("br"),
+                    m("a", {style: "margin-bottom: 0.3em", class: "btn btn-link btn-sm", href: id + "_poster.pdf"}, "poster"),
+                    m("br"),
+                    m("a", {style: "margin-bottom: 0.3em", class: "btn btn-link btn-sm", href: "https://meet.jit.si/AMLaP2020_poster_" + id}, "video chat"),
+                ])
             ])
         }
     }
