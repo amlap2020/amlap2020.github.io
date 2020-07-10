@@ -147,7 +147,7 @@ function PosterSessionFactory(number, date) {
             }
             return [m(Navigation),
                     m("main", {class: "container"}, [
-                        m("h1", {class: "display-4"}, "Poster session " + number),
+                        m("h1", {class: "display-4"}, "Poster session " + number),
                         m("p", {class: "lead"}, date),
                         m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", l)])
                     ])
