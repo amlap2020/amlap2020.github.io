@@ -23,7 +23,7 @@ var Navigation = {
         ]
         return m("nav", {class: "navbar navbar-expand-lg navbar-light bg-light"},
                  [
-                     m("div", {class: "navbar-brand"}, "AMLaP 2020 Programme"),
+                     m("div", {class: "navbar-brand"}, m("a", {href: "#", class: "navbar-brand"}, "AMLaP 2020 Programme")),
                      m.trust("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> <span class=\"navbar-toggler-icon\"></span> </button>"),
                      m("div", {class: "collapse navbar-collapse", id: "navbarNav"}, m("ul", {class: "navbar-nav"}, nav_items)),
                 ])
