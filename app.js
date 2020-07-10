@@ -61,7 +61,7 @@ function SessionFactory(s) {
             var session = s.session
             if (s.id != null) {
                 p = presentations.filter(function(p) {return p.id == s.id})[0]
-                session = [m("a", {href: p.id + ".pdf"}, p.title), m("br"), p.authors]
+                session = [m("a", {class: "lead", href: p.id + ".pdf"}, p.title), m("br"), p.authors]
             } else if (session == "Poster session 1") {
                 session = m("a", {href: "#!/poster_session_1"}, session)
             } else if (session == "Poster session 2") {
@@ -72,9 +72,9 @@ function SessionFactory(s) {
                 session = m("a", {href: chatlink}, session)
             }
             if (s.id == null)
-                session = m("strong", session)
+                session = m("strong", {class: "lead", style: "font-weight: bold"}, session)
             return m("tr", [
-                m("td", s.start + "–" + s.end),
+                m("td", {class: "lead"}, s.start + "–" + s.end),
                 m("td", session),
             ])
         }
@@ -112,7 +112,6 @@ var PosterTableHeader = {
         return m("thead", {class: "thead-dark"}, m("tr", [
             m("th", "ID"),
             m("th", "Title / Author(s)"),
-            m("th", "Links"),
         ]))
     }
 }
@@ -127,17 +126,15 @@ function PosterFactory(id, authors, title, links) {
             a = a.flat()
             a.pop()
             return m("tr", [
-                m("td", m("a", {href: id+".pdf"}, "#" + id)),
+                m("td", m("a", {class: "lead", href: id+".pdf"}, "#" + id)),
                 m("td", [
-                    m("a", {href: id+".pdf"}, title),
+                    m("a", {class: "lead", href: id+".pdf"}, title),
                     m("br"),
-                    a]),
-                m("td", {style: "text-align: center"}, [
-                    m("a", {style: "margin-bottom: 0.3em", class: "btn btn-link btn-sm", href: id + ".pdf"}, "abstract"),
+                    a,
                     m("br"),
-                    m("a", {style: "margin-bottom: 0.3em", class: "btn btn-link btn-sm", href: id + "_poster.pdf"}, "poster"),
-                    m("br"),
-                    m("a", {style: "margin-bottom: 0.3em", class: "btn btn-link btn-sm", href: "https://meet.jit.si/AMLaP2020_poster_" + id}, "video chat"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + ".pdf"}, "abstract"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + "_poster.pdf"}, "poster"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_poster_" + id}, "video chat"),
                 ])
             ])
         }
