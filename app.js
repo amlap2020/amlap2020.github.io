@@ -8,15 +8,15 @@ var Navigation = {
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Talks"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/sessions1"), href: "#!/sessions1"}, "Day 1, Sept 3"),
-                   m("a", {class: x("/sessions2"), href: "#!/sessions2"}, "Day 2, Sept 4"),
-                   m("a", {class: x("/sessions3"), href: "#!/sessions3"}, "Day 3, Sept 5")])]),
+                   m("a", {class: x("/sessions1"), href: "#!/sessions1"}, "Talks Day 1 (3 Sept)"),
+                   m("a", {class: x("/sessions2"), href: "#!/sessions2"}, "Talks Day 2 (4 Sept)"),
+                   m("a", {class: x("/sessions3"), href: "#!/sessions3"}, "Talks Day 3 (5 Sept)")])]),
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Posters"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/poster_session_1"), href: "#!/poster_session_1"}, "Day 1, Sept 3"),
-                   m("a", {class: x("/poster_session_2"), href: "#!/poster_session_2"}, "Day 2, Sept 4"),
-                   m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Day 3, Sept 5")])]),
+                   m("a", {class: x("/poster_session_1"), href: "#!/poster_session_1"}, "Posters Day 1 (3 Sept)"),
+                   m("a", {class: x("/poster_session_2"), href: "#!/poster_session_2"}, "Posters Day 2 (4 Sept)"),
+                   m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Posters Day 3 (5 Sept)")])]),
             // m("li", {class: "nav-item"}, m("a", {class: x("/authors"), href: "#!/authors"}, "Authors")),
         ]
         return m("nav", {class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark"},
@@ -43,6 +43,11 @@ var Overview = {
                 ])]
     }
 }
+var TimeZoneWarning = {
+    view: function () {
+        return m("div", {class: "alert alert-warning"}, "All times are in UTC+2:00, i.e. Central European Summer Time.")
+    }
+}
 
 var SessionsTableHeader = {
     view: function() {
@@ -60,6 +65,20 @@ function SessionFactory(s) {
             if (s.id != null) {
                 p = presentations.filter(function(p) {return p.id == s.id})[0]
                 session = [m("a", {class: "lead", href: p.id + ".pdf"}, p.title), m("br"), p.authors]
+                session = [
+                    session,
+                    m("br"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: s.id + ".pdf"}, "Abstract"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_talk_" + s.id}, "Video chat")]
+            } else if (session.match(/Keynote [1-5].+/)){
+                var n = session.substring(8, 9);
+                session = [
+                    m("span", {class: "lead", style: "font-weight: bold"}, session),
+                    m("br"),
+                    m("span", {class: "lead"}, m("a", {href: "keynote" + n + ".pdf"}, "Title of keynote " + n)),
+                    m("br"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "keynote" + n + ".pdf"}, "Abstract"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_keynote_" + n}, "Video chat")]
             } else if (session == "Poster session 1") {
                 session = m("a", {href: "#!/poster_session_1"}, session)
             } else if (session == "Poster session 2") {
@@ -69,10 +88,10 @@ function SessionFactory(s) {
             } else if (session.match(/Social chat/)) {
                 session = m("a", {href: chatlink}, session)
             } else if (session.match(/– .+ break –/) || session.match(/Social chat/)) {
-                session = m("center", m("a", {href: chatlink}, session))
+                session = m("center", {class: "lead", style: "font-weight: bold"}, m("a", {href: chatlink}, session))
+            } else {
+                session = m("span", {class: "lead", style: "font-weight: bold"}, session)
             }
-            if (s.id == null)
-                session = m("strong", {class: "lead", style: "font-weight: bold"}, session)
             return m("tr", [
                 m("td", {class: "lead"}, s.start + "﻿–﻿" + s.end),
                 m("td", session),
@@ -96,6 +115,7 @@ function SessionsFactory(day, date) {
                             m("p", {class: "lead"}, date),
                             m("a", {class: "btn btn-primary btn-sm mr-1", href: "https://zoom.us", target: "_blank"}, "Join on Zoom"),
                             m("a", {class: "btn btn-primary btn-sm mr-1", href: "https://twitch.tv", target: "_blank"}, "Watch on Twitch"),
+                            m("br"), m("br"), m(TimeZoneWarning),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
                             m(SessionsTableHeader),
@@ -157,8 +177,10 @@ function PosterSessionFactory(number, date) {
             return [m(Navigation),
                     m("main", {class: "container", id: "main"}, [
                         m("div", {class: "container"}, [
-                          m("h1", {class: "display-4"}, "Poster session " + number),
-                          m("p", {class: "lead"}, date)]),
+                            m("h1", {class: "display-4"}, "Poster session " + number),
+                            m("p", {class: "lead"}, date),
+                             m(TimeZoneWarning),
+                        ]),
                     m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", l)])
                     ])]
         }
