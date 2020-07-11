@@ -8,15 +8,15 @@ var Navigation = {
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Talks"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/sessions1"), href: "#!/sessions1"}, "Talks day 1 (Sept 3)"),
-                   m("a", {class: x("/sessions2"), href: "#!/sessions2"}, "Talks day 2 (Sept 4)"),
-                   m("a", {class: x("/sessions3"), href: "#!/sessions3"}, "Talks day 3 (Sept 5)")])]),
+                   m("a", {class: x("/sessions1"), href: "#!/sessions1"}, "Day 1, Sept 3"),
+                   m("a", {class: x("/sessions2"), href: "#!/sessions2"}, "Day 2, Sept 4"),
+                   m("a", {class: x("/sessions3"), href: "#!/sessions3"}, "Day 3, Sept 5")])]),
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Posters"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/poster_session_1"), href: "#!/poster_session_1"}, "Posters day 1 (Sept 3)"),
-                   m("a", {class: x("/poster_session_2"), href: "#!/poster_session_2"}, "Posters day 2 (Sept 4)"),
-                   m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Posters day 3 (Sept 5)")])]),
+                   m("a", {class: x("/poster_session_1"), href: "#!/poster_session_1"}, "Day 1, Sept 3"),
+                   m("a", {class: x("/poster_session_2"), href: "#!/poster_session_2"}, "Day 2, Sept 4"),
+                   m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Day 3, Sept 5")])]),
             // m("li", {class: "nav-item"}, m("a", {class: x("/authors"), href: "#!/authors"}, "Authors")),
         ]
         return m("nav", {class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark"},
