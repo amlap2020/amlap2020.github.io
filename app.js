@@ -62,9 +62,15 @@ function SessionFactory(s) {
     return {
         view: function() {
             var session = s.session
-            if (s.id != null) {
-                p = presentations.filter(function(p) {return p.id == s.id})[0]
-                session = [m("a", {class: "lead", href: p.id + ".pdf"}, p.title), m("br"), p.authors]
+            if (s.id != null) {  // Regular Talk
+                var p = presentations.filter(function(p) {return p.id == s.id})[0]
+                var badge = []
+                if (s.session.startsWith("Special session"))
+                    badge = [m("span", {class: "badge badge-success"}, "Special Session"), " "]
+                session = [
+                    badge,
+                    m("a", {class: "lead", href: p.id + ".pdf"}, p.title),
+                    m("br"), p.authors],
                 session = [
                     session,
                     m("br"),
@@ -80,13 +86,13 @@ function SessionFactory(s) {
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "keynote" + n + ".pdf"}, "Abstract"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_keynote_" + n}, "Video chat")]
             } else if (session == "Poster session 1") {
-                session = m("a", {href: "#!/poster_session_1"}, session)
+                session = m("a", {href: "#!/poster_session_1", class: "lead", style: "font-weight: bold"}, session)
             } else if (session == "Poster session 2") {
-                session = m("a", {href: "#!/poster_session_2"}, session)
+                session = m("a", {href: "#!/poster_session_2", class: "lead", style: "font-weight: bold"}, session)
             } else if (session == "Poster session 3") {
-                session = m("a", {href: "#!/poster_session_3"}, session)
+                session = m("a", {href: "#!/poster_session_3", class: "lead", style: "font-weight: bold"}, session)
             } else if (session.match(/Social chat/)) {
-                session = m("a", {href: chatlink}, session)
+                session = m("a", {href: chatlink, class: "lead", style: "font-weight: bold"}, session)
             } else if (session.match(/– .+ break –/) || session.match(/Social chat/)) {
                 session = m("center", {class: "lead", style: "font-weight: bold"}, m("a", {href: chatlink}, session))
             } else {
@@ -113,8 +119,8 @@ function SessionsFactory(day, date) {
                         m("div", {class: "container mb-3"}, [
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
-                            m("a", {class: "btn btn-primary btn-sm mr-1", href: "https://zoom.us", target: "_blank"}, "Join on Zoom"),
-                            m("a", {class: "btn btn-primary btn-sm mr-1", href: "https://twitch.tv", target: "_blank"}, "Watch on Twitch"),
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, "Join us on Zoom"),
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, "Watch on Twitch"),
                             m("br"), m("br"), m(TimeZoneWarning),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
