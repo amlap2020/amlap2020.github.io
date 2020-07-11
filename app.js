@@ -74,7 +74,7 @@ function SessionFactory(s) {
             if (s.id == null)
                 session = m("strong", {class: "lead", style: "font-weight: bold"}, session)
             return m("tr", [
-                m("td", {class: "lead"}, s.start + "–" + s.end),
+                m("td", {class: "lead"}, s.start + "﻿–﻿" + s.end),
                 m("td", session),
             ])
         }
