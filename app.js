@@ -19,7 +19,7 @@ var Navigation = {
                    m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Posters day 3 (Sept 5)")])]),
             // m("li", {class: "nav-item"}, m("a", {class: x("/authors"), href: "#!/authors"}, "Authors")),
         ]
-        return m("nav", {class: "navbar navbar-expand-lg navbar-dark bg-dark"},
+        return m("nav", {class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark"},
                  [
                      m("div", {class: "navbar-brand"}, m("a", {href: "#", class: "navbar-brand"}, "AMLaP 2020 Programme")),
                      m.trust("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> <span class=\"navbar-toggler-icon\"></span> </button>"),
