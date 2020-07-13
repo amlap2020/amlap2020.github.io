@@ -246,7 +246,7 @@ var Guideline = {
                             m("li", [m("strong", "Note: "),
                                      "The button ",
                                      m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Video Q&A"),
-                                     "is for the optional post-presentation Q&A on Jitsi (see below) not for questions during the official Q&A on Zoom."]),
+                                     "is for the informal post-presentation Q&A on Jitsi (see below) not for questions during the official Q&A on Zoom."]),
                         ]),
                         m("h2", "How to watch talks on Twitch?"),
                         m("ul", [
@@ -259,7 +259,7 @@ var Guideline = {
                         m("p", m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, "Watch on Twitch")),
                         m("h2", "How to join the additional informal Q&A chat for further questions?"),
                         m("ul", [
-                            m("li", "We invite speakers to answer further questions in an additional video chat separate from the streamed session and following the official Q&A.  This format gives a bit more privacy and space for more open ended discussion."),
+                            m("li", "We invite speakers to answer further questions in an additional video chat separate from the streamed session and following the official Q&A.  This format gives a bit more privacy and space for more open-ended discussion and detailed questions not suited for the general audience."),
                             m("li", ["To access this video chat, please click the button ",
                                      m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Video Q&A"),
                                      "below the talk in the time table."]),
