@@ -152,7 +152,7 @@ function SessionsFactory(day, date) {
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
                             m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, [Icon("tv"), " Join us on Zoom"]),
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, [Icon("tv"), " Watch on Twitch"]),
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv/amlap2020", target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"]),
                             m("br"), m("br"), m(TimeZoneWarning),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
@@ -274,7 +274,7 @@ var Guideline = {
                             m("li", "With a Twitch account, you will also be able to watch the archived videos of the talks."),
                             m("li", "You will not be able to ask live questions on Twitch.  If you'd like to ask a live question during the official Q&A after a talk, please join the Zoom webinar."),
                         ]),
-                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, [Icon("tv"), " Watch on Twitch"])),
+                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: "https://www.twitch.tv/amlap2020", target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"])),
                         m("h2", "How to join the additional informal Q&A chat for further questions?"),
                         m("ul", [
                             m("li", "We invite speakers to answer further questions in an additional video chat separate from the streamed session and following the official Q&A.  This format gives a bit more privacy and space for more open-ended discussion and detailed questions not suited for the general audience."),
