@@ -1,6 +1,10 @@
 
 var chatlink = "https://www.duckduckgo.com"
 
+function Icon(name) {
+    return m("img", {src: "bootstrap-icons/" + name + ".svg", width: 24, height: 24}, "")
+}
+
 var Navigation = {
     view: function() {
         var x = function(route) {if (route == m.route.get()) {return "nav-link active"} else {return "nav-link"}}
@@ -34,25 +38,31 @@ var Overview = {
                 m("main", {class: "container"}, [
                     m("h1", {class: "display-4"}, "Main Menu"),
                     m("p", {class: "lead"}, "Read this first:"),
-                    m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, "Conference guideline"), m("br"),
+                    m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, [
+                        Icon("info-circle"), " Conference guideline"]), m("br"),
                     m("p", {class: "lead"}, "Programme:"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, "Sessions day 1"), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_1"}, "Poster session day 1"), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions2"}, "Sessions day 2"), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_2"}, "Poster session day 2"), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions3"}, "Sessions day 3"), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, "Poster session day 3"), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, [
+                        Icon("table"), " Sessions day 1"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_1"}, [
+                        Icon("images"), " Poster session day 1"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions2"}, [
+                        Icon("table"), " Sessions day 2"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_2"}, [
+                        Icon("images"), " Poster session day 2"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions3"}, [
+                        Icon("table"), " Sessions day 3"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, [
+                        Icon("images"), " Poster session day 3"]), m("br"),
                     m("p", {class: "lead"}, "Resources:"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
-                        m("img", {src: "download.svg", width: 24, height: 24}, ""),
-                        " Proceedings"]), m("br"),
+                        Icon("download"), " Proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
-                        m("img", {src: "download.svg", width: 24, height: 24}, ""),
-                        " Bibliography"]), m("br"),
+                        Icon("download"), " Bibliography"]), m("br"),
                     m("br"),
                 ])]
     }
 }
+
 var TimeZoneWarning = {
     view: function () {
         return m("div", {class: "alert alert-warning"}, "All times are given in UTC+2:00, i.e. Central European Summer Time.")
@@ -141,8 +151,8 @@ function SessionsFactory(day, date) {
                         m("div", {class: "container mb-3"}, [
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, "Join us on Zoom"),
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, "Watch on Twitch"),
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, [Icon("tv"), " Join us on Zoom"]),
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, [Icon("tv"), " Watch on Twitch"]),
                             m("br"), m("br"), m(TimeZoneWarning),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
@@ -245,8 +255,8 @@ var Guideline = {
                             m("li", "Please register ahead of the conference."),
                         ]),
                         m("p", [
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, "Register for Zoom webinar"),
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, "Join Zoom webinar"),]),
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, [Icon("pencil-square"), " Register for Zoom webinar"]),
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, [Icon("tv"), " Join Zoom webinar"]),]),
                         m("h2", "How to ask live questions on Zoom?"),
                         m("p", "If you'd like to ask a live question in the official Q&A period after a talk,"),
                         m("ul", [
@@ -264,7 +274,7 @@ var Guideline = {
                             m("li", "With a Twitch account, you will also be able to watch the archived videos of the talks."),
                             m("li", "You will not be able to ask live questions on Twitch.  If you'd like to ask a live question during the official Q&A after a talk, please join the Zoom webinar."),
                         ]),
-                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, "Watch on Twitch")),
+                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, [Icon("tv"), " Watch on Twitch"])),
                         m("h2", "How to join the additional informal Q&A chat for further questions?"),
                         m("ul", [
                             m("li", "We invite speakers to answer further questions in an additional video chat separate from the streamed session and following the official Q&A.  This format gives a bit more privacy and space for more open-ended discussion and detailed questions not suited for the general audience."),
@@ -285,7 +295,7 @@ var Guideline = {
                                      "to download it."]), 
                         ]),
                         m("h2", "Ensure good audio quality when using Zoom and Jitsi."),
-                        m("p", "When you ask live questions after talks or during a poster presentation, please ensure the following:"),
+                        m("p", "Before joining live discussion or asking a question, please ensure the following:"),
                         m("ul", [
                             m("li", "test you microphone in advance,"),
                             m("li", "make sure there are no background noises,"),
