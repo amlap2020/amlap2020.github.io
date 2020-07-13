@@ -34,7 +34,7 @@ var Overview = {
                 m("main", {class: "container"}, [
                     m("h1", {class: "display-4"}, "Main Menu"),
                     m("p", {class: "lead"}, "3–5 September 2020"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/guideline"}, "Conference guideline"), m("br"),
+                    m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, "Conference guideline"), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, "Sessions day 1"), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_1"}, "Poster session day 1"), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions2"}, "Sessions day 2"), m("br"),
