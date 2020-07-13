@@ -33,21 +33,29 @@ var Overview = {
         return [m(Navigation),
                 m("main", {class: "container"}, [
                     m("h1", {class: "display-4"}, "Main Menu"),
-                    m("p", {class: "lead"}, "3–5 September 2020"),
+                    m("p", {class: "lead"}, "Read this first:"),
                     m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, "Conference guideline"), m("br"),
+                    m("p", {class: "lead"}, "Programme:"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, "Sessions day 1"), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_1"}, "Poster session day 1"), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions2"}, "Sessions day 2"), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_2"}, "Poster session day 2"), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions3"}, "Sessions day 3"), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, "Poster session day 3"),
-                    m("br"), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, "Poster session day 3"), m("br"),
+                    m("p", {class: "lead"}, "Resources:"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
+                        m("img", {src: "download.svg", width: 24, height: 24}, ""),
+                        " Proceedings"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
+                        m("img", {src: "download.svg", width: 24, height: 24}, ""),
+                        " Bibliography"]), m("br"),
+                    m("br"),
                 ])]
     }
 }
 var TimeZoneWarning = {
     view: function () {
-        return m("div", {class: "alert alert-warning"}, "All times are in UTC+2:00, i.e. Central European Summer Time.")
+        return m("div", {class: "alert alert-warning"}, "All times are given in UTC+2:00, i.e. Central European Summer Time.")
     }
 }
 
@@ -83,7 +91,7 @@ function SessionFactory(s) {
                 session = [
                     m("span", {class: "lead", style: "font-weight: bold"}, session),
                     m("br"),
-                    m("span", {class: "lead"}, m("a", {href: "keynote" + n + ".pdf"}, "Title of keynote " + n)),
+                    m("span", {class: "lead"}, m("a", {href: "keynote" + n + ".pdf"}, "Title of keynote " + n + " (t.b.a.)")),
                     m("br"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "keynote" + n + ".pdf"}, "Abstract"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_keynote_" + n}, "Video Q&A")]
@@ -163,7 +171,7 @@ var PosterTableHeader = {
 function PosterFactory(id, authors, title, links) {
     return {
         view: function() {
-            var a = authors.split("; ")
+            var a = authors.split("); ")
             // var a = authors.replace(/ \([^()]+\)/g, "").replace(/ \([^()]+\)/g, "").split("; ")
             // a = a.map(a => [m("a", {href: "#!/authors"}, a), ", "])
             a = a.map(a => [a, ", "])
