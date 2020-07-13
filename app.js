@@ -17,7 +17,7 @@ var Navigation = {
                    m("a", {class: x("/poster_session_1"), href: "#!/poster_session_1"}, "Posters Day 1 (3 Sept)"),
                    m("a", {class: x("/poster_session_2"), href: "#!/poster_session_2"}, "Posters Day 2 (4 Sept)"),
                    m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Posters Day 3 (5 Sept)")])]),
-            // m("li", {class: "nav-item"}, m("a", {class: x("/authors"), href: "#!/authors"}, "Authors")),
+            m("li", {class: "nav-item"}, m("a", {class: x("/guideline"), href: "#!/guideline"}, "Guideline")),
         ]
         return m("nav", {class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark"},
                  [
@@ -66,7 +66,7 @@ function SessionFactory(s) {
                 var p = presentations.filter(function(p) {return p.id == s.id})[0]
                 var badge = []
                 if (s.session.startsWith("Special session"))
-                    badge = [m("span", {class: "badge badge-success"}, "Special Session"), " "]
+                    badge = [m("span", {class: "badge badge-pill badge-success"}, "Special Session"), " "]
                 session = [
                     badge,
                     m("a", {class: "lead", href: p.id + ".pdf"}, p.title),
@@ -75,7 +75,7 @@ function SessionFactory(s) {
                     session,
                     m("br"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: s.id + ".pdf"}, "Abstract"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_talk_" + s.id}, "Video chat")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_talk_" + s.id}, "Video Q&A")]
             } else if (session.match(/Keynote [1-5].+/)){
                 var n = session.substring(8, 9);
                 session = [
@@ -84,7 +84,7 @@ function SessionFactory(s) {
                     m("span", {class: "lead"}, m("a", {href: "keynote" + n + ".pdf"}, "Title of keynote " + n)),
                     m("br"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "keynote" + n + ".pdf"}, "Abstract"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_keynote_" + n}, "Video chat")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_keynote_" + n}, "Video Q&A")]
             } else if (session == "Poster session 1") {
                 session = m("a", {href: "#!/poster_session_1", class: "lead", style: "font-weight: bold"}, session)
             } else if (session == "Poster session 2") {
@@ -197,10 +197,87 @@ var PosterSession1 = PosterSessionFactory(1, "Thursday, 3 September 2020, 16:00�
 var PosterSession2 = PosterSessionFactory(2, "Friday, 4 September 2020, 14:00–15:30 (UTC+2)")
 var PosterSession3 = PosterSessionFactory(3, "Saturday, 5 September 2020, 10:00–11:30 (UTC+2)")
 
-var Authors = {
+var Guideline = {
     view: function() {
         return [m(Navigation),
-                m("h1", {class: "display-4"}, "Authors"),
+                m("main", {class: "container", id: "main"}, [
+                    m("div", {class: "container mb-3"}, [
+                        m("h1", {class: "display-4"}, "Conference Guideline"),
+                        m("p", {class: "lead"}, "Below we briefly explain how you can, and should, participate in the conference.  Please take a moment to read this."),
+                        m("h2", "Please review our code of conduct."),
+                        m("ul", [
+                            m("li", "AMLaP 2020 has a code of conduct that applies throughout the conference and on all platforms (Zoom, Twitch, Jitsi, …)."),
+                            m("li", ["The code of conduct can be found ",
+                                     m("a", {href: "https://amlap2020.org/code-of-conduct"}, "here"),
+                                     "."])
+                        ]),
+                        m("h2", "How to watch talks on Zoom?"),
+                        m("ul", [
+                            m("li", "The whole conference will take place in a single Zoom webinar.  This means you'll need just one meeting ID, one password, and one registration."),
+                            m("li", [
+                                "To register for the Zoom webinar, please click ",
+                                m("a", {href: "XYZ"}, "here"),
+                                ".  After registration, you will receive an e-mail with the meeting details (meeting ID, password, …)."]),
+                            m("li", "You'll need a Zoom account to register."),
+                            m("li", "When you register, please specify your full name and primary accademic affiliation (if applicable)."),
+                            m("li", "Please register ahead of the conference."),
+                        ]),
+                        m("p", [
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, "Register for Zoom webinar"),
+                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, "Join Zoom webinar"),]),
+                        m("h2", "How to ask live questions on Zoom?"),
+                        m("p", "If you'd like to ask a live question in the official Q&A period after a talk,"),
+                        m("ul", [
+                            m("li", "TODO."),
+                            m("li", [m("strong", "Note: "),
+                                     "The button ",
+                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Video Q&A"),
+                                     "is for the optional post-presentation Q&A on Jitsi (see below) not for questions during the official Q&A on Zoom."]),
+                        ]),
+                        m("h2", "How to watch talks on Twitch?"),
+                        m("ul", [
+                            m("li", "Talks will also be livestreamed on Twitch.tv."),
+                            m("li", "No account is needed to watch the livestream on Twitch."),
+                            m("li", "If you have a Twitch account, you can interact with other audience members in the Twitch chat (not moderated)."),
+                            m("li", "With a Twitch account, you will also be able to watch the archived videos of the talks."),
+                            m("li", "If you'd like to ask a live question during the official Q&A after a talk, please join the Zoom webinar."),
+                        ]),
+                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv", target: "_blank"}, "Watch on Twitch")),
+                        m("h2", "How to ask further questions after the official Q&A period on Jitsi?"),
+                        m("ul", [
+                            m("li", "We invite speakers to answer further questions in a separate video chat following their presentations."),
+                            m("li", ["To access this video chat, please click the button ",
+                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Video Q&A"),
+                                     "below the talk in the time table."]),
+                            m("li", "Note that presenters are not required to attend this post-talk video Q&A."),
+                        ]),
+                        m("h2", "How to attend live poster presentations?"),
+                        m("ul", [
+                            m("li", "For live poster presentations we offer Jitsi video chats."),
+                            m("li", ["To access a live poster presentation, use the button ",
+                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Video chat"),
+                                     "in the overview of the poster sessions."]),
+                            m("li", "If presenters wish to use an alternative platform for their poster presentation, they can send us a link ahead of the conference and we'll include it in the program  instead of the Jitsi button."),
+                            m("li", ["Poster presenters are invited to provide their ’poster’ in some suitable format (e.g., .pdf).  Please use the button ",
+                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Poster"),
+                                     "to download it."]), 
+                        ]),
+                        m("h2", "How to get optimal results when using with Zoom and Jitsi?"),
+                        m("p", "When you ask live questions after talks or during a poster presentation"),
+                        m("ul", [
+                            m("li", "test you microphone in advance,"),
+                            m("li", "make sure there are no background noises,"),
+                            m("li", "use headphones to avoid feedback loops,"),
+                            m("li", "unmute you microphone only when you talk and mute it otherwise."),
+                        ]),
+                        m("h2", "If you have further questions, …"),
+                        m("p", ["… don’t hesitate to contact us at ",
+                                m("a", {href: "mailto:info@amlap2020.org"}, "info@amlap2020.org")]),
+                        m("br"),
+                        m("br"),
+                        m("br"),
+                    ])
+                ])
                ]
     }
 }
@@ -213,6 +290,6 @@ m.route(document.body, "/overview", {
     "/poster_session_1": PosterSession1,
     "/poster_session_2": PosterSession2,
     "/poster_session_3": PosterSession3,
-    "/authors": Authors,
+    "/guideline": Guideline ,
 })
 
