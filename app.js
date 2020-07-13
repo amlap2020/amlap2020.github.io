@@ -87,6 +87,18 @@ function SessionFactory(s) {
                     m("br"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "keynote" + n + ".pdf"}, "Abstract"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_keynote_" + n}, "Video Q&A")]
+            } else if (session.startsWith("MS Chair:")) {
+                session = 
+                    m("center",
+                      [m("span", {class: "lead", style: "font-weight: bold"}, "Main session:"),
+                       m("br"),
+                       "Chair: ", session.split(": ")[1]])
+            } else if (session.startsWith("SS Chair:")) {
+                session = 
+                    m("center",
+                      [m("span", {class: "lead", style: "font-weight: bold"}, "Special session: Computational models of language processing"),
+                       m("br"),
+                       "Chair: ", session.split(": ")[1]])
             } else if (session == "Poster session 1") {
                 session = m("a", {href: "#!/poster_session_1", class: "lead", style: "font-weight: bold"}, session)
             } else if (session == "Poster session 2") {
@@ -94,11 +106,11 @@ function SessionFactory(s) {
             } else if (session == "Poster session 3") {
                 session = m("a", {href: "#!/poster_session_3", class: "lead", style: "font-weight: bold"}, session)
             } else if (session.match(/Social chat/)) {
-                session = m("a", {href: chatlink, class: "lead", style: "font-weight: bold"}, session)
+                session = m("center", m("a", {href: chatlink, class: "lead", style: "font-weight: bold"}, session))
             } else if (session.match(/– .+ break –/) || session.match(/Social chat/)) {
                 session = m("center", {class: "lead", style: "font-weight: bold"}, m("a", {href: chatlink}, session))
             } else {
-                session = m("span", {class: "lead", style: "font-weight: bold"}, session)
+                session = m("center", {class: "lead", style: "font-weight: bold"}, session)
             }
             return m("tr", [
                 m("td", {class: "lead"}, s.start + "﻿–﻿" + s.end),
