@@ -184,7 +184,7 @@ function PosterFactory(id, authors, title, links) {
             var a = authors.split("); ")
             // var a = authors.replace(/ \([^()]+\)/g, "").replace(/ \([^()]+\)/g, "").split("; ")
             // a = a.map(a => [m("a", {href: "#!/authors"}, a), ", "])
-            a = a.map(a => [a, ", "])
+            a = a.map(a => [a, "), "])
             a = a.flat()
             a.pop()
             return m("tr", [
