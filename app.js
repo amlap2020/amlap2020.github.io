@@ -65,7 +65,7 @@ var Overview = {
 
 var TimeZoneWarning = {
     view: function () {
-        return m("div", {class: "alert alert-warning"}, "All times are given in UTC+2:00, i.e. Central European Summer Time.")
+        return m("div", {class: "alert alert-warning"}, "All times are given in UTC+2, i.e. Central European Summer Time.")
     }
 }
 
