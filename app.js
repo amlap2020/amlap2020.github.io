@@ -39,7 +39,7 @@ var Overview = {
                     m("h1", {class: "display-4"}, "Main Menu"),
                     m("p", {class: "lead"}, "Read this first:"),
                     m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, [
-                        Icon("info-circle"), " Conference guideline"]), m("br"),
+                        Icon("info-circle"), " Conference guide"]), m("br"),
                     m("p", {class: "lead"}, "Programme:"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, [
                         Icon("table"), " Sessions day 1"]), m("br"),
@@ -234,7 +234,7 @@ var Guideline = {
         return [m(Navigation),
                 m("main", {class: "container", id: "main"}, [
                     m("div", {class: "container mb-3"}, [
-                        m("h1", {class: "display-4"}, "Conference Guideline"),
+                        m("h1", {class: "display-4"}, "Conference Guide"),
                         m("p", {class: "lead"}, "Below we briefly explain how you can, and should, participate in the conference.  Please take a moment to read this."),
                         m("h2", "Please review our code of conduct."),
                         m("ul", [
@@ -271,7 +271,7 @@ var Guideline = {
                             m("li", "Talks will also be livestreamed on Twitch.tv."),
                             m("li", "No account is needed to watch the livestream on Twitch."),
                             m("li", "If you have a Twitch account, you can interact with other audience members in the Twitch chat (not moderated)."),
-                            m("li", "With a Twitch account, you will also be able to watch the archived videos of the talks."),
+                            m("li", "With a Twitch account, you will also be able to watch the archived videos (available for two weeks on Twitch)."),
                             m("li", "You will not be able to ask live questions on Twitch.  If you'd like to ask a live question during the official Q&A after a talk, please join the Zoom webinar."),
                         ]),
                         m("p", m("a", {class: "btn btn-primary btn mr-1", href: "https://www.twitch.tv/amlap2020", target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"])),
