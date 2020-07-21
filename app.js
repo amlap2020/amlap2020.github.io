@@ -10,18 +10,18 @@ var Navigation = {
         var x = function(route) {if (route == m.route.get()) {return "nav-link active"} else {return "nav-link"}}
         var nav_items = [
             m("li", {class: "nav-item dropdown"},
-              [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Talks"),
+              [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Schedule"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/sessions1"), href: "#!/sessions1"}, "Talks Day 1 (3 Sept)"),
-                   m("a", {class: x("/sessions2"), href: "#!/sessions2"}, "Talks Day 2 (4 Sept)"),
-                   m("a", {class: x("/sessions3"), href: "#!/sessions3"}, "Talks Day 3 (5 Sept)")])]),
+                   m("a", {class: x("/sessions1"), href: "#!/sessions1"}, "Day 1 (3 Sept)"),
+                   m("a", {class: x("/sessions2"), href: "#!/sessions2"}, "Day 2 (4 Sept)"),
+                   m("a", {class: x("/sessions3"), href: "#!/sessions3"}, "Day 3 (5 Sept)")])]),
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Posters"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/poster_session_1"), href: "#!/poster_session_1"}, "Posters Day 1 (3 Sept)"),
-                   m("a", {class: x("/poster_session_2"), href: "#!/poster_session_2"}, "Posters Day 2 (4 Sept)"),
-                   m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Posters Day 3 (5 Sept)")])]),
-            m("li", {class: "nav-item"}, m("a", {class: x("/guideline"), href: "#!/guideline"}, "Guideline")),
+                   m("a", {class: x("/poster_session_1"), href: "#!/poster_session_1"}, "Day 1 (3 Sept)"),
+                   m("a", {class: x("/poster_session_2"), href: "#!/poster_session_2"}, "Day 2 (4 Sept)"),
+                   m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Day 3 (5 Sept)")])]),
+            m("li", {class: "nav-item"}, m("a", {class: x("/guideline"), href: "#!/guideline"}, "Conference Guide")),
         ]
         return m("nav", {class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark"},
                  [
