@@ -39,25 +39,25 @@ var Overview = {
                     m("h1", {class: "display-4"}, "Main Menu"),
                     m("p", {class: "lead"}, "Read this first:"),
                     m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, [
-                        Icon("info-circle"), " Conference guide"]), m("br"),
+                        Icon("map"), " Conference guide"]), m("br"),
                     m("p", {class: "lead"}, "Programme:"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, [
-                        Icon("table"), " Sessions day 1"]), m("br"),
+                        Icon("chat-text"), " Talk schedule day 1"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_1"}, [
-                        Icon("images"), " Poster session day 1"]), m("br"),
+                        Icon("easel"), " Poster session day 1"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions2"}, [
-                        Icon("table"), " Sessions day 2"]), m("br"),
+                        Icon("chat-text"), " Talk schedule day 2"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_2"}, [
-                        Icon("images"), " Poster session day 2"]), m("br"),
+                        Icon("easel"), " Poster session day 2"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions3"}, [
-                        Icon("table"), " Sessions day 3"]), m("br"),
+                        Icon("chat-text"), " Talk schedule day 3"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, [
-                        Icon("images"), " Poster session day 3"]), m("br"),
+                        Icon("easel"), " Poster session day 3"]), m("br"),
                     m("p", {class: "lead"}, "Resources:"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
-                        Icon("download"), " Proceedings"]), m("br"),
+                        Icon("book"), " Proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
-                        Icon("download"), " Bibliography"]), m("br"),
+                        Icon("bookshelf"), " Bibliography"]), m("br"),
                     m("br"),
                 ])]
     }
