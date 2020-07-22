@@ -94,8 +94,7 @@ function SessionFactory(s) {
                 session = [
                     session,
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: s.id + ".pdf"}, "Abstract"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_talk_" + s.id}, "Video Q&A")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: s.id + ".pdf"}, "Abstract")]
             } else if (session.match(/Keynote [1-5].+/)){
                 var n = session.substring(8, 9);
                 session = [
@@ -103,8 +102,7 @@ function SessionFactory(s) {
                     m("br"),
                     m("span", {class: "lead"}, m("a", {href: "keynote" + n + ".pdf"}, "Title of keynote " + n + " (t.b.a.)")),
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "keynote" + n + ".pdf"}, "Abstract"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_keynote_" + n}, "Video Q&A")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "keynote" + n + ".pdf"}, "Abstract")]
             } else if (session.startsWith("MS Chair:")) {
                 session = 
                     m("center",
