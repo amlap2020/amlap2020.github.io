@@ -1,5 +1,9 @@
 
-var chatlink = "https://www.duckduckgo.com"
+var zoom_url = "TODO"
+var zoomregistration_url = "TODO"
+var twitch_url = "https://twitch.tv/amlap2020"
+var gathertown_url = "TODO"
+var jitsi_url_prefix = "https://meet.jit.si/AMLaP2020_poster_"
 
 function Icon(name) {
     return m("img", {src: "bootstrap-icons/" + name + ".svg", width: 24, height: 24}, "")
@@ -122,9 +126,9 @@ function SessionFactory(s) {
             } else if (session == "Poster session 3") {
                 session = m("a", {href: "#!/poster_session_3", class: "lead", style: "font-weight: bold"}, session)
             } else if (session.match(/Social chat/)) {
-                session = m("center", m("a", {href: chatlink, class: "lead", style: "font-weight: bold"}, session))
+                session = m("center", m("a", {href: gathertown_url, class: "lead", style: "font-weight: bold"}, session))
             } else if (session.match(/– .+ break –/) || session.match(/Social chat/)) {
-                session = m("center", {class: "lead", style: "font-weight: bold"}, m("a", {href: chatlink}, session))
+                session = m("center", {class: "lead", style: "font-weight: bold"}, m("a", {href: gathertown_url}, session))
             } else {
                 session = m("center", {class: "lead", style: "font-weight: bold"}, session)
             }
@@ -149,8 +153,8 @@ function SessionsFactory(day, date) {
                         m("div", {class: "container mb-3"}, [
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, [Icon("tv"), " Join us on Zoom"]),
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://twitch.tv/amlap2020", target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"]),
+                            m("a", {class: "btn btn-primary btn mr-1", href: zoom_url, target: "_blank"}, [Icon("tv"), " Join us on Zoom"]),
+                            m("a", {class: "btn btn-primary btn mr-1", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"]),
                             m("br"), m("br"), m(TimeZoneWarning),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
@@ -194,8 +198,8 @@ function PosterFactory(id, authors, title, links) {
                     a,
                     m("br"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + ".pdf"}, "Abstract"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + "_poster.pdf"}, "Poster"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "https://meet.jit.si/AMLaP2020_poster_" + id}, "Video chat"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + "_poster.pdf"}, "Intro"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: jitsi_url_prefix + id}, "Video chat"),
                 ])
             ])
         }
@@ -233,76 +237,105 @@ var Guideline = {
                 m("main", {class: "container", id: "main"}, [
                     m("div", {class: "container mb-3"}, [
                         m("h1", {class: "display-4"}, "Conference Guide"),
-                        m("p", {class: "lead"}, "Below we briefly explain how you can, and should, participate in the conference.  Please take a moment to read this."),
+                        m("p", {class: "lead"}, "Here we briefly explain how you can (and should) participate in the conference.  To get the best possible AMLaP experience, please take a moment to review this information."),
                         m("h2", "Please review our code of conduct."),
+                        m("p", m.trust("Our <a href=\"https://amlap2020.org/code-of-conduct\">code of conduct</a> applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")),
+                        m("h2", "What platforms are used for AMLaP?"),
                         m("ul", [
-                            m("li", "AMLaP 2020 has a code of conduct that applies throughout the conference and on all platforms (Zoom, Twitch, Jitsi, …)."),
-                            m("li", ["The code of conduct can be found ",
-                                     m("a", {href: "https://amlap2020.org/code-of-conduct"}, "here"),
-                                     "."])
+                            m("li", [
+                                "The conference uses four platforms:",
+                                m("ul", [
+                                    m("li", m.trust("<a href=\"https://zoom.us/\">Zoom</a> for talks and live questions during Q&A,")),
+                                    m("li", m.trust("<a href=\"https://www.twitch.tv/\">Twitch</a> for live streaming of the talks and text-based chat,")),
+                                    m("li", m.trust("<a href=\"https://gather.town\">Gather</a> for social interaction via video and text-based chat during breaks and otherswise,")),
+                                    m("li", m.trust("<a href=\"https://meet.jit.si/\">Jitsi</a> for live poster sessions.")),
+                                ])]),
+                            m("li", [
+                                "We tried to keep the barriers for participation as low as possible:",
+                                m("ul", [
+                                    m("li", "No special software needs to be installed to participate in any aspect of the conference.  All platforms are available via recent web browsers (though the native Zoom client might give a slightly better experience than the Zoom web interface)."),
+                                    m("li", "All platforms but Zoom can be used without creating accounts."),
+                                    m("li", "Zoom is only needed if you'd like to ask live questions during the Q&As.  (But we also accept questions via the Twitch chat.)"),
+                                ])])]),
+                        m("h2", "How can I contribute to the conference apart from watching talks and presenting my research?"),
+                        m("ul", [
+                            m("li", ["We encourage everyone, particularly more senior colleagues, to participate in the social chat on ", m("a", {href: gathertown_url}, "Gather"), ".  Gather will be available 24h but moderators will be present only during the programme."]),
+                            m("li", "If you are a senior researcher, please be approachable to colleagues and particularly early career researchers and students."),
+                            m("li", ["If you are an early career researcher or student, please don't hesitate to politely approach more senior colleagues in the social chat on ", m("a", {href: gathertown_url}, "Gather"), "."]),
                         ]),
-                        m("h2", "How to watch talks on Zoom?"),
+                        m("h2", "How can I watch talks on Zoom?"),
                         m("ul", [
-                            m("li", "The whole conference will take place in a single Zoom webinar.  This means you'll need just one meeting ID, one password, and one registration."),
+                            m("li", "A single Zoom webinar will be used for the complete spoken programme of the conference.  This means you'll need just one meeting ID."),
+                            m("li", "There's no password for the Zoom webinar since we use registration for access control."),
                             m("li", [
                                 "To register for the Zoom webinar, please click ",
-                                m("a", {href: "XYZ"}, "here"),
-                                ".  After registration, you will receive an e-mail with the meeting details (meeting ID, password, …)."]),
-                            m("li", "You'll need a Zoom account to register."),
-                            m("li", "When you register, please specify your full name and primary accademic affiliation (if applicable)."),
+                                m("a", {href: "TODO"}, "here"),
+                                ".  After registration, you will receive an e-mail with the meeting details."]),
+                            m("li", "You will need a Zoom account to register."),
                             m("li", "Please register ahead of the conference."),
+                            m("ul",
+                              m("li", "Speakers and session chairs please register at least two weaks ahead of the conference (20 August) so you can participate in our Zoom training session."),
+                              m("li", "Poster presenters please register one week ahead (27 Aug).")),
                         ]),
                         m("p", [
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, [Icon("pencil-square"), " Register for Zoom webinar"]),
-                            m("a", {class: "btn btn-primary btn mr-1", href: "https://zoom.us", target: "_blank"}, [Icon("tv"), " Join Zoom webinar"]),]),
-                        m("h2", "How to ask live questions on Zoom?"),
-                        m("p", "If you'd like to ask a live question in the official Q&A period after a talk,"),
+                            m("a", {class: "btn btn-primary btn mr-1", href: zoomregistration_url, target: "_blank"}, [Icon("pencil-square"), " Register for Zoom webinar"]),
+                            m("a", {class: "btn btn-primary btn mr-1", href: zoom_url, target: "_blank"}, [Icon("tv"), " Join Zoom webinar"]),]),
+                        m("h2", "How can I ask live questions during Q&As?"),
                         m("ul", [
-                            m("li", "TODO."),
-                            m("li", [m("strong", "Note: "),
-                                     "The button ",
-                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Video Q&A"),
-                                     "is for the informal post-presentation Q&A on Jitsi (see below) not for questions during the official Q&A on Zoom."]),
-                        ]),
-                        m("h2", "How to watch talks on Twitch?"),
+                            m("li", "Submit your question in the Zoom chat as early as possible.  No need to wait until the end of the talk."),
+                            m("li", "The session hosts will preselect questions and forward them to the session chair."),
+                            m("li", "When your question is selected, we will give you permission to activate your microphone (but not the camera) so you can ask your question directly to the speaker.  Please be ready.  (See question about ensuring good audio quality below.)"),
+                            m("li", ["If you didn't get a chance to ask your question, you can talk to the speaker on ", m("a", {href: gathertown_url}, "Gather"), " (see information below).  We encourage speakers to show up there and to be approachable especially to junior researchers."])]),
+                        m("h2", "How can I watch talks on Twitch?"),
                         m("ul", [
-                            m("li", "Talks will also be livestreamed on Twitch.tv."),
+                            m("li", "Talks will also be livestreamed on Twitch."),
                             m("li", "No account is needed to watch the livestream on Twitch."),
-                            m("li", "If you have a Twitch account, you can interact with other audience members in the Twitch chat (not moderated)."),
-                            m("li", "With a Twitch account, you will also be able to watch the archived videos (available for two weeks on Twitch)."),
-                            m("li", "You will not be able to ask live questions on Twitch.  If you'd like to ask a live question during the official Q&A after a talk, please join the Zoom webinar."),
+                            m("li", "If you have a Twitch account, you can interact with other audience members in the Twitch chat."),
+                            // m("li", "With a Twitch account, you will also be able to continue watching videos later if you need to leave."),
+                            m("li", "If you have a question for the Q&A following a talk, you can post it in the Twitch chat and our moderators will forward it to the session host on Zoom who will read it for you if the question is selected.  However, the preferred way to ask question is live on Zoom."),
                         ]),
-                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: "https://www.twitch.tv/amlap2020", target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"])),
-                        m("h2", "How to join the additional informal Q&A chat for further questions?"),
+                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"])),
+                        m("h2", "Is there a place for casual social interaction?"),
+                        m("p", "Yes, there is and we're really excited about this!"),
                         m("ul", [
-                            m("li", "We invite speakers to answer further questions in an additional video chat separate from the streamed session and following the official Q&A.  This format gives a bit more privacy and space for more open-ended discussion and detailed questions not suited for the general audience."),
-                            m("li", ["To access this video chat, please click the button ",
-                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Video Q&A"),
-                                     "below the talk in the time table."]),
-                            m("li", "Note that presenters are not required to attend this post-talk video Q&A."),
+                            m("li", ["We use ", m("a", {href: gathertown_url}, "Gather"), " as our atrium, a place were participants can chat casually, catch-up with each other, discuss presentations, ask presenters further questions, and so on.  Gather looks may look a little silly at first, but it works and can be great fun.  So give it a try!"]),
+                            m("li", "When you steer your avatar close to a person, you will automatically be connected with them via video chat.  Don't be shy!"),
+                            m("li", "To locate someone use the search function in the 'Participants' box on the right."),
+                            m("li", "Also note the toolbar at the lower left which has some useful functions and settings."),
+                            m("li", "In addition to video chat, Gather can also be used to send private text messages to someone."),
+                            m("li", "There is also a global chat for broadcasting messages to everyone.  Use it sparingly."),
                         ]),
-                        m("h2", "How to attend live poster presentations?"),
+                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: gathertown_url, target: "_blank"}, [Icon("people-fill"), " ", Icon("emoji-laughing"), " Join us on Gather"])),
+                        m("h2", "How can I attend live poster presentations?"),
                         m("ul", [
-                            m("li", "For live poster presentations we offer Jitsi video chats."),
+                            m("li", "For live poster presentations we offer Jitsi video chats, one for each poster."),
                             m("li", ["To access a live poster presentation, use the button ",
-                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Video chat"),
+                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/guideline"}, "Video chat"),
                                      "in the overview of the poster sessions."]),
-                            m("li", "If presenters wish to use an alternative platform for their poster presentation, they can send us a link ahead of the conference and we'll include it in the program  instead of the Jitsi button."),
-                            m("li", ["Poster presenters are invited to provide their ’poster’ in some suitable format (e.g., .pdf).  Please use the button ",
-                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/help"}, "Poster"),
-                                     "to download it."]), 
+                            // m("li", "If presenters wish to use an alternative platform for their poster presentation, they can supply us with a link ahead of the conference when registering on Zoom and we'll include it in the program  instead of the Jitsi button.  In case you make use of this option, please make extra sure that the link works properly."),
+                            m("li", ["Poster presenters are invited to prepare a short intro to their poster (e.g., a video or slides).  Please use the ",
+                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/guideline"}, "Intro"),
+                                     "buttons in the poster overview to access it."]), 
                         ]),
-                        m("h2", "Ensure good audio quality when using Zoom and Jitsi."),
+                        m("h2", "How can I ensure good audio when using Zoom and Jitsi?"),
                         m("p", "Before joining live discussion or asking a question, please ensure the following:"),
                         m("ul", [
-                            m("li", "test you microphone in advance,"),
-                            m("li", "make sure there are no background noises,"),
-                            m("li", "use headphones to avoid feedback loops,"),
-                            m("li", "unmute you microphone only when you talk and mute it otherwise."),
+                            m("li", "Test you microphone in advance."),
+                            m("li", "Make sure there is no background noise."),
+                            m("li", "Use headphones to avoid feedback loops."),
+                            m("li", "Unmute you microphone only when you talk and mute it otherwise."),
                         ]),
-                        m("h2", "If you have further questions, …"),
-                        m("p", ["… don’t hesitate to contact us at ",
-                                m("a", {href: "mailto:info@amlap2020.org"}, "info@amlap2020.org")]),
+                        m("h2", "I have more questions."),
+                        m("ul", [
+                            m("li", [
+                                "Speak to a moderator on ",
+                                m("a", {href: gathertown_url}, "Gather"),
+                                " or in the ",
+                                m("a", {href: twitch_url}, "Twitch chat")
+                            ]),
+                            m("li", m.trust("Or send us an e-mail to <a href=\"mailto:info@amlap2020.org\">info@amlap2020.org</a>.")),
+
+                        ]),
                         m("br"),
                         m("br"),
                         m("br"),
