@@ -242,11 +242,11 @@ var Guideline = {
                         m("p", m.trust("Our <a href=\"https://amlap2020.org/code-of-conduct\">code of conduct</a> applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")),
                         m("h2", "Do I have to register for AMLaP 2020 and pay a participation fee?"),
                         m("ul", [
-                            m("li", ["AMLaP 2020 will be ", m("strong", "completely free for all participants"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language"}, "Collaborative Research Cluster on Limits of Variability in Language"), "."]),
-                            m("li", "Registration is required for the Zoom webinar.  All presenters are required to register there.  Other participants don't need to register on Zoom as talks can also be watched on Twitch."),
+                            m("li", ["AMLaP 2020 will be ", m("strong", "completely free for everyone"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language"}, "Collaborative Research Cluster on Limits of Variability in Language"), "."]),
+                            m("li", "Registration is required just for the Zoom webinar (not for the other platforms, see below).  All presenters are required to register for the webinar.  Other participants need to register if they intend to ask live questions during the Q&As.  If you're not a presenter and do not intend to ask live questions, you can follow the conference on Twitch without registration."),
                             m("li", [
                                 "To register for the Zoom webinar, please click ",
-                                m("a", {href: "TODO"}, "here"),
+                                m("a", {href: zoomregistration_url}, "here"),
                                 ".  After registration, you will receive an e-mail with the meeting details."]),
                             m("li", "You will need a Zoom account to register."),
                             m("li", "Please register ahead of the conference."),
