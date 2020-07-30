@@ -6,7 +6,7 @@ var amlap2020schedule = [
 {day:"1", start:"10:30", end:"11:00", session:"Special session 1, talk 2", id:219},
 {day:"1", start:"11:00", end:"11:30", session:"Special session 1, talk 3", id:283},
 {day:"1", start:"11:30", end:"12:00", session:"– 30min break –", id:null},
-{day:"1", start:"12:00", end:"13:30", session:"MS Chair: t.b.d.", id:null},
+{day:"1", start:"12:00", end:"13:30", session:"MS Chair: Patrick Sturt", id:null},
 {day:"1", start:"12:00", end:"12:30", session:"Main session 1, talk 1", id:88},
 {day:"1", start:"12:30", end:"13:00", session:"Main session 1, talk 2", id:131},
 {day:"1", start:"13:00", end:"13:30", session:"Main session 1, talk 3", id:23},
