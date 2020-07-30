@@ -238,9 +238,9 @@ var Guideline = {
                     m("div", {class: "container mb-3"}, [
                         m("h1", {class: "display-4"}, "AMLaP 2020 Conference Guide"),
                         m("p", {class: "lead"}, "Here we briefly explain how you can (and should) participate in the conference.  To get the best possible AMLaP experience, please take a moment to review this information."),
-                        m("h2", "Please review our code of conduct."),
-                        m("p", m.trust("Our <a href=\"https://amlap2020.org/code-of-conduct\">code of conduct</a> applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")),
-                        m("h2", "Do I have to register for AMLaP 2020 and pay a participation fee?"),
+                        m("h2", "Does the conference have a code of conduct?"),
+                        m("p", m.trust("Yes, we do.  Our <a href=\"https://amlap2020.org/code-of-conduct\">code of conduct</a> applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")),
+                        m("h2", "Do I have to register for AMLaP 2020 and pay a registration fee?"),
                         m("ul", [
                             m("li", ["AMLaP 2020 will be ", m("strong", "completely free for everyone"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language"}, "Collaborative Research Cluster on Limits of Variability in Language"), "."]),
                             m("li", "Registration is required just for the Zoom webinar (not for the other platforms, see below).  All presenters are required to register for the webinar.  Other participants need to register if they intend to ask live questions during the Q&As.  If you're not a presenter and do not intend to ask live questions, you can follow the conference on Twitch without registration."),
@@ -310,7 +310,7 @@ var Guideline = {
                             m("li", "In addition to video chat, Gather can also be used to send private text messages to someone."),
                             m("li", "There is also a global chat for broadcasting messages to everyone.  Use it sparingly."),
                         ]),
-                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: gathertown_url, target: "_blank"}, [Icon("people-fill"), " ", Icon("emoji-laughing"), " Join us on Gather"])),
+                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: gathertown_url, target: "_blank"}, [Icon("emoji-laughing"), " Mingle on Gather", " ", Icon("people-fill")])),
                         m("h2", "How can I attend live poster presentations?"),
                         m("ul", [
                             m("li", "For live poster presentations we offer Jitsi video chats, one for each poster."),
@@ -330,13 +330,14 @@ var Guideline = {
                             m("li", "Use headphones to avoid feedback loops."),
                             m("li", "Unmute you microphone only when you talk and mute it otherwise."),
                         ]),
-                        m("h2", "I have more questions."),
+                        m("h2", "Where can I ask more questions?"),
                         m("ul", [
                             m("li", [
                                 "Speak to a moderator on ",
                                 m("a", {href: gathertown_url}, "Gather"),
                                 " or in the ",
-                                m("a", {href: twitch_url}, "Twitch chat")
+                                m("a", {href: twitch_url}, "Twitch chat"),
+                                "."
                             ]),
                             m("li", m.trust("Or send us an e-mail to <a href=\"mailto:info@amlap2020.org\">info@amlap2020.org</a>.")),
 
