@@ -251,7 +251,7 @@ var Guideline = {
                             m("li", "You will need a Zoom account to register."),
                             m("li", "Please register ahead of the conference."),
                             m("ul",
-                              m("li", "Speakers and session chairs please register at least two weaks ahead of the conference (20 August) so you can participate in our Zoom training session."),
+                              m("li", "Speakers and session chairs please register at least two weeks ahead of the conference (20 August) so you can participate in our Zoom training session."),
                               m("li", "Poster presenters please register one week ahead (27 Aug).")),
                         ]),
                         m("h2", "What platforms are used for AMLaP?"),
