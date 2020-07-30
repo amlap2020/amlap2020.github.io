@@ -240,6 +240,20 @@ var Guideline = {
                         m("p", {class: "lead"}, "Here we briefly explain how you can (and should) participate in the conference.  To get the best possible AMLaP experience, please take a moment to review this information."),
                         m("h2", "Please review our code of conduct."),
                         m("p", m.trust("Our <a href=\"https://amlap2020.org/code-of-conduct\">code of conduct</a> applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")),
+                        m("h2", "Do I have to register for AMLaP 2020 and pay a participation fee?"),
+                        m("ul", [
+                            m("li", ["AMLaP 2020 will be ", m("strong", "completely free for all participants"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language"}, "Collaborative Research Cluster on Limits of Variability in Language"), "."]),
+                            m("li", "Registration is required for the Zoom webinar.  All presenters are required to register there.  Other participants don't need to register on Zoom as talks can also be watched on Twitch."),
+                            m("li", [
+                                "To register for the Zoom webinar, please click ",
+                                m("a", {href: "TODO"}, "here"),
+                                ".  After registration, you will receive an e-mail with the meeting details."]),
+                            m("li", "You will need a Zoom account to register."),
+                            m("li", "Please register ahead of the conference."),
+                            m("ul",
+                              m("li", "Speakers and session chairs please register at least two weaks ahead of the conference (20 August) so you can participate in our Zoom training session."),
+                              m("li", "Poster presenters please register one week ahead (27 Aug).")),
+                        ]),
                         m("h2", "What platforms are used for AMLaP?"),
                         m("ul", [
                             m("li", [
@@ -267,15 +281,6 @@ var Guideline = {
                         m("ul", [
                             m("li", "A single Zoom webinar will be used for the complete spoken programme of the conference.  This means you'll need just one meeting ID."),
                             m("li", "There's no password for the Zoom webinar since we use registration for access control."),
-                            m("li", [
-                                "To register for the Zoom webinar, please click ",
-                                m("a", {href: "TODO"}, "here"),
-                                ".  After registration, you will receive an e-mail with the meeting details."]),
-                            m("li", "You will need a Zoom account to register."),
-                            m("li", "Please register ahead of the conference."),
-                            m("ul",
-                              m("li", "Speakers and session chairs please register at least two weaks ahead of the conference (20 August) so you can participate in our Zoom training session."),
-                              m("li", "Poster presenters please register one week ahead (27 Aug).")),
                         ]),
                         m("p", [
                             m("a", {class: "btn btn-primary btn mr-1", href: zoomregistration_url, target: "_blank"}, [Icon("pencil-square"), " Register for Zoom webinar"]),
@@ -298,7 +303,7 @@ var Guideline = {
                         m("h2", "Is there a place for casual social interaction?"),
                         m("p", "Yes, there is and we're really excited about this!"),
                         m("ul", [
-                            m("li", ["We use ", m("a", {href: gathertown_url}, "Gather"), " as our atrium, a place were participants can chat casually, catch-up with each other, discuss presentations, ask presenters further questions, and so on.  Gather looks may look a little silly at first, but it works and can be great fun.  So give it a try!"]),
+                            m("li", ["We use ", m("a", {href: gathertown_url}, "Gather"), " as our atrium, a place were participants can chat casually, catch up with each other, discuss presentations, ask presenters further questions, and so on.  Gather looks may look a little silly at first, but it works and can be great fun.  So give it a try!"]),
                             m("li", "When you steer your avatar close to a person, you will automatically be connected with them via video chat.  Don't be shy!"),
                             m("li", "To locate someone use the search function in the 'Participants' box on the right."),
                             m("li", "Also note the toolbar at the lower left which has some useful functions and settings."),
