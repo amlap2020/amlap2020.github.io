@@ -236,7 +236,7 @@ var Guideline = {
         return [m(Navigation),
                 m("main", {class: "container", id: "main"}, [
                     m("div", {class: "container mb-3"}, [
-                        m("h1", {class: "display-4"}, "Conference Guide"),
+                        m("h1", {class: "display-4"}, "AMLaP 2020 Conference Guide"),
                         m("p", {class: "lead"}, "Here we briefly explain how you can (and should) participate in the conference.  To get the best possible AMLaP experience, please take a moment to review this information."),
                         m("h2", "Please review our code of conduct."),
                         m("p", m.trust("Our <a href=\"https://amlap2020.org/code-of-conduct\">code of conduct</a> applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")),
