@@ -5,6 +5,8 @@ var twitch_url = "https://twitch.tv/amlap2020"
 var gathertown_url = "TODO"
 var jitsi_url_prefix = "https://meet.jit.si/AMLaP2020_poster_"
 
+var withdrawn = ["311", "325", "271", "324", "5", "296", "306", "144", "78", "3"]
+
 function Icon(name) {
     return m("img", {src: "bootstrap-icons/" + name + ".svg", width: 24, height: 24}, "")
 }
@@ -211,6 +213,8 @@ function PosterSessionFactory(number, date) {
         view: function() {
             var l = []
             for (p of presentations) {
+                if (withdrawn.includes(p.id))
+                    continue
                 if (p.session == "Poster session " + number)
                     l.push(m(PosterFactory(p.id, p.authors, p.title)))
             }
