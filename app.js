@@ -60,8 +60,8 @@ var Overview = {
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, [
                         Icon("easel"), " Poster session day 3"]), m("br"),
                     m("p", {class: "lead"}, "Resources:"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
-                        Icon("book"), " Proceedings"]), m("br"),
+                    // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
+                    //     Icon("book"), " Proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
                         Icon("bookshelf"), " Bibliography"]), m("br"),
                     m("br"),
