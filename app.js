@@ -242,7 +242,7 @@ var Guideline = {
                         m("p", m.trust("Yes, we do.  Our <a href=\"https://amlap2020.org/code-of-conduct\">code of conduct</a> applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")),
                         m("h2", "Do I have to register for AMLaP 2020 and pay a registration fee?"),
                         m("ul", [
-                            m("li", ["AMLaP 2020 will be ", m("strong", "completely free for everyone"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language"}, "Collaborative Research Cluster on Limits of Variability in Language"), "."]),
+                            m("li", ["AMLaP 2020 will be ", m("strong", "completely free for everyone"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language"}, "Collaborative Research Cluster: Limits of Variability in Language (SFB 1287)"), "."]),
                             m("li", "Registration is required just for the Zoom webinar (not for the other platforms, see below).  All presenters are required to register for the webinar.  Other participants need to register if they intend to ask live questions during the Q&As.  If you're not a presenter and do not intend to ask live questions, you can follow the conference on Twitch without registration."),
                             m("li", [
                                 "To register for the Zoom webinar, please click ",
@@ -300,7 +300,7 @@ var Guideline = {
                             m("li", "If you have a question for the Q&A following a talk, you can post it in the Twitch chat and our moderators will forward it to the session host on Zoom who will read it for you if the question is selected.  However, the preferred way to ask question is live on Zoom."),
                         ]),
                         m("p", m("a", {class: "btn btn-primary btn mr-1", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"])),
-                        m("h2", "Is there a place for casual social interaction?"),
+                        m("h2", "Is there a place for more casual social interaction?"),
                         m("p", "Yes, there is and we're really excited about this!"),
                         m("ul", [
                             m("li", ["We use ", m("a", {href: gathertown_url}, "Gather"), " as our atrium, a place were participants can chat casually, catch up with each other, discuss presentations, ask presenters further questions, and so on.  Gather looks may look a little silly at first, but it works and can be great fun.  So give it a try!"]),
