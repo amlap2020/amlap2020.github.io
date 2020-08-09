@@ -201,7 +201,7 @@ function PosterFactory(id, authors, title, links) {
                     m("br"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + ".pdf"}, "Abstract"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + "_poster.pdf"}, "Intro"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: jitsi_url_prefix + id}, "Video chat"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: jitsi_url_prefix + id}, "Video Q&A"),
                 ])
             ])
         }
