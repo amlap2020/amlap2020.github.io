@@ -95,20 +95,20 @@ function SessionFactory(s) {
                     badge = [m("span", {class: "badge badge-pill badge-success"}, "Special Session"), " "]
                 session = [
                     badge,
-                    m("a", {class: "lead", href: p.id + ".pdf"}, p.title),
+                    m("a", {class: "lead", href: "a/" + p.id + ".pdf"}, p.title),
                     m("br"), p.authors],
                 session = [
                     session,
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: s.id + ".pdf"}, "Abstract")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf"}, "Abstract")]
             } else if (session.match(/Keynote [1-5].+/)){
                 var n = session.substring(8, 9);
                 session = [
                     m("span", {class: "lead", style: "font-weight: bold"}, session),
                     m("br"),
-                    m("span", {class: "lead"}, m("a", {href: "keynote" + n + ".pdf"}, "Title of keynote " + n + " (t.b.a.)")),
+                    m("span", {class: "lead"}, m("a", {href: "a/keynote" + n + ".pdf"}, "Title of keynote " + n + " (t.b.a.)")),
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "keynote" + n + ".pdf"}, "Abstract")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/keynote" + n + ".pdf"}, "Abstract")]
             } else if (session.startsWith("MS Chair:")) {
                 session = 
                     m("center",
@@ -195,11 +195,11 @@ function PosterFactory(id, authors, title, links) {
                 // m("td", m("a", {class: "lead", href: id+".pdf"}, "#" + id)),
                 m("td", {class: "lead"}, "#" + id),
                 m("td", [
-                    m("a", {class: "lead", href: id+".pdf"}, title),
+                    m("a", {class: "lead", href: "a/" + id + ".pdf"}, title),
                     m("br"),
                     a,
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + ".pdf"}, "Abstract"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + id + ".pdf"}, "Abstract"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + "_poster.pdf"}, "Intro"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: jitsi_url_prefix + id}, "Video Q&A"),
                 ])
