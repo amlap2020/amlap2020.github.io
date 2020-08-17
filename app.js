@@ -273,7 +273,7 @@ var Guideline = {
                                 m("ul", [
                                     m("li", "No special software needs to be installed to participate in any aspect of the conference.  All platforms are available via recent web browsers (though the native Zoom client might give a slightly better experience than the Zoom web interface)."),
                                     m("li", "All platforms but Zoom can be used without creating accounts."),
-                                    m("li", "Zoom is only needed if you'd like to ask live questions during the Q&As.  (But we also accept questions via the Twitch chat.)"),
+                                    m("li", "Zoom is only needed if you'd like to ask live questions during the Q&As."),
                                 ])])]),
                         m("h2", "How can I contribute to the conference apart from watching talks and presenting my research?"),
                         m("ul", [
@@ -300,8 +300,8 @@ var Guideline = {
                             m("li", "Talks will also be livestreamed on Twitch."),
                             m("li", "No account is needed to watch the livestream on Twitch."),
                             m("li", "If you have a Twitch account, you can interact with other audience members in the Twitch chat."),
-                            // m("li", "With a Twitch account, you will also be able to continue watching videos later if you need to leave."),
-                            m("li", "If you have a question for the Q&A following a talk, you can post it in the Twitch chat and our moderators will forward it to the session host on Zoom who will read it for you if the question is selected.  However, the preferred way to ask question is live on Zoom."),
+                            m("li", "With a Twitch account, you will also be able to continue watching videos later if you need to leave for some reason."),
+                            m("li", "If you'd like to ask a question during a Q&A following a talk, please use Zoom for that."),
                         ]),
                         m("p", m("a", {class: "btn btn-primary btn mr-1", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"])),
                         m("h2", "Is there a place for more casual social interaction?"),
@@ -331,7 +331,7 @@ var Guideline = {
                         m("ul", [
                             m("li", "Test you microphone in advance."),
                             m("li", "Make sure there is no background noise."),
-                            m("li", "Use headphones to avoid feedback loops."),
+                            m("li", "Preferrably use headphones to avoid feedback loops."),
                             m("li", "Unmute you microphone only when you talk and mute it otherwise."),
                         ]),
                         m("h2", "Where can I ask more questions?"),
@@ -343,7 +343,7 @@ var Guideline = {
                                 m("a", {href: twitch_url}, "Twitch chat"),
                                 "."
                             ]),
-                            m("li", m.trust("Or send us an e-mail to <a href=\"mailto:info@amlap2020.org\">info@amlap2020.org</a>.")),
+                            m("li", m.trust("Or send us an e-mail at <a href=\"mailto:info@amlap2020.org\">info@amlap2020.org</a>.")),
 
                         ]),
                         m("br"),
