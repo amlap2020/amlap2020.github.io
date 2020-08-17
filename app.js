@@ -128,9 +128,14 @@ function SessionFactory(s) {
             } else if (session == "Poster session 3") {
                 session = m("a", {href: "#!/poster_session_3", class: "lead", style: "font-weight: bold"}, session)
             } else if (session.match(/Social chat/)) {
-                session = m("center", m("a", {href: gathertown_url, class: "lead", style: "font-weight: bold"}, session))
-            } else if (session.match(/– .+ break –/) || session.match(/Social chat/)) {
-                session = m("center", {class: "lead", style: "font-weight: bold"}, m("a", {href: gathertown_url}, session))
+                session = m("center", [
+                    m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
+                    m("a", {href: gathertown_url}, "Join us on Gather!")])
+                // session = m("center", m("a", {href: gathertown_url, class: "lead", style: "font-weight: bold"}, session))
+            } else if (session.match(/.+ break/)) {
+                session = m("center", [
+                    m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
+                    m("a", {href: gathertown_url}, "Join us on Gather!")])
             } else {
                 session = m("center", {class: "lead", style: "font-weight: bold"}, session)
             }
