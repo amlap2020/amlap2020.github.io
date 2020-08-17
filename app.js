@@ -2,7 +2,7 @@
 var zoom_url = "TODO"
 var zoomregistration_url = "TODO"
 var twitch_url = "https://twitch.tv/amlap2020"
-var gathertown_url = "TODO"
+var gathertown_url = "https://gather.town/65ZDsKs7IS9aj9V1/amlap2020"
 var jitsi_url_prefix = "https://meet.jit.si/AMLaP2020_poster_"
 
 var withdrawn = ["311", "325", "271", "324", "5", "296", "306", "144", "78", "3"]
