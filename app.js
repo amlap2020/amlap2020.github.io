@@ -88,7 +88,7 @@ function SessionFactory(s) {
     return {
         view: function() {
             var session = s.session
-            if (s.id != null) {  // Regular Talk
+            if (s.id != null && !isNaN(+s.id)) {  // Regular Talk
                 var p = presentations.filter(function(p) {return p.id == s.id})[0]
                 var badge = []
                 if (s.session.startsWith("Special session"))
