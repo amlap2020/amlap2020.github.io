@@ -1,6 +1,6 @@
 
-var zoom_url = "TODO"
-var zoomregistration_url = "TODO"
+var zoom_url = "https://zoom.us/j/93957569698"
+var zoomregistration_url = "https://zoom.us/webinar/register/WN_PVp8hJ63Sle9L0yGaqzrRQ"
 var twitch_url = "https://twitch.tv/amlap2020"
 var gathertown_url = "https://gather.town/65ZDsKs7IS9aj9V1/amlap2020"
 var jitsi_url_prefix = "https://meet.jit.si/AMLaP2020_poster_"
