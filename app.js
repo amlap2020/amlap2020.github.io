@@ -48,17 +48,17 @@ var Overview = {
                         Icon("map"), " Conference guide"]), m("br"),
                     m("p", {class: "lead"}, "Programme:"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, [
-                        Icon("chat-text"), " Talk schedule day 1"]), m("br"),
+                        Icon("chat-text"), " Talks day 1"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_1"}, [
-                        Icon("easel"), " Poster session day 1"]), m("br"),
+                        Icon("easel"), " Posters day 1"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions2"}, [
-                        Icon("chat-text"), " Talk schedule day 2"]), m("br"),
+                        Icon("chat-text"), " Talks day 2"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_2"}, [
-                        Icon("easel"), " Poster session day 2"]), m("br"),
+                        Icon("easel"), " Posters day 2"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions3"}, [
-                        Icon("chat-text"), " Talk schedule day 3"]), m("br"),
+                        Icon("chat-text"), " Talks day 3"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, [
-                        Icon("easel"), " Poster session day 3"]), m("br"),
+                        Icon("easel"), " Posters day 3"]), m("br"),
                     m("p", {class: "lead"}, "Resources:"),
                     // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
                     //     Icon("book"), " Proceedings"]), m("br"),
