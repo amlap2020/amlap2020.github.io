@@ -63,7 +63,7 @@ var Overview = {
                     // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
                     //     Icon("book"), " Proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
-                        Icon("bookshelf"), " Bibliography (BibTeX)"]), m("br"),
+                        Icon("book"), " Bibliography (BibTeX)"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics"}, [
                         Icon("calendar-week"), " Calendar (.ics)"]), m("br"),
                     m("br"),
