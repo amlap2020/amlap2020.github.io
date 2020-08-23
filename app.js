@@ -43,9 +43,11 @@ var Overview = {
         return [m(Navigation),
                 m("main", {class: "container"}, [
                     m("h1", {class: "display-4"}, "Main Menu"),
-                    m("p", {class: "lead"}, "Read this first:"),
+                    m("p", {class: "lead"}, "First things fist:"),
                     m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, [
                         Icon("map"), " Conference guide"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: zoomregistration_url}, [
+                        Icon("pencil-square"), " Register for Zoom webinar"]), m("br"),
                     m("p", {class: "lead"}, "Programme:"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, [
                         Icon("chat-text"), " Talks day 1"]), m("br"),
@@ -62,10 +64,10 @@ var Overview = {
                     m("p", {class: "lead"}, "Resources:"),
                     // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
                     //     Icon("book"), " Proceedings"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
-                        Icon("book"), " Bibliography (BibTeX)"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics"}, [
                         Icon("calendar-week"), " Calendar (.ics)"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
+                        Icon("book"), " Bibliography (BibTeX)"]), m("br"),
                     m("br"),
                 ])]
     }
