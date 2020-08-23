@@ -43,7 +43,7 @@ var Overview = {
         return [m(Navigation),
                 m("main", {class: "container"}, [
                     m("h1", {class: "display-4"}, "Main Menu"),
-                    m("p", {class: "lead"}, "First things fist:"),
+                    m("p", {class: "lead"}, "First things first:"),
                     m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, [
                         Icon("map"), " Conference guide"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: zoomregistration_url}, [
