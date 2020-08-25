@@ -62,13 +62,15 @@ var Overview = {
                         Icon("chat-text"), " Talks day 3"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, [
                         Icon("easel"), " Posters day 3"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/all"}, [
-                        Icon("collection"), " All abstracts"]), m("br"),
                     m("p", {class: "lead"}, "Resources:"),
                     // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
                     //     Icon("book"), " Proceedings"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/all"}, [
+                        Icon("collection"), " Overview of all abstracts"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020_abstracts.zip"}, [
+                        Icon("download"), " Download all abstracts (.zip)"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics"}, [
-                        Icon("calendar-week"), " Calendar (.ics)"]), m("br"),
+                        Icon("calendar-week"), " Program as calendar file (.ics)"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
                         Icon("book"), " Bibliography (BibTeX)"]), m("br"),
                     m("br"),
