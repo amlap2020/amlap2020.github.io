@@ -255,14 +255,13 @@ var Guideline = {
                         m("h2", "I have 1min.  What do I need to know?"),
                         m("ol", [
                             m("li", "AMLaP 2020 has a synchronous format."),
-                            m("li", "Participation is free."),
                             m("li", ["We use Zoom for talks.  Please register ", m("a", {href: zoomregistration_url}, "here"), " for the webinar."]),
                             m("li", ["Talks will also be streamed on ", m("a", {href: twitch_url}, "Twitch"), " (no registration required)."]),
                             m("li", ["For more casual interaction during breaks and otherwise we use ", m("a", {href: gathertown_url}, "Gather"), "."]),
                             m("li", ["For poster presentations we offer Jitsi rooms.  Click the buttons ",
                                      m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/guideline"}, "Video Q&A"),
-                                     "in program."]),
-                            m("li", ["On all platforms, please use the following format for your screen name: ", m("b", "Full Name (Affilitation)"), " or just your full name if you currently don't have an affilitation"]),
+                                     "in the program."]),
+                            m("li", ["On all platforms, please use the following format for your screen name: ", m("b", "Full Name (Affilitation)"), " or just your full name if you currently don't have an affilitation."]),
                             m("li", "Be nice and have fun!"),
                         ]),
                         m("h2", "Does the conference have a code of conduct?"),
@@ -270,39 +269,15 @@ var Guideline = {
                         m("h2", "Do I have to register for AMLaP 2020 and pay a registration fee?"),
                         m("ul", [
                             m("li", ["AMLaP 2020 will be ", m("strong", "completely free for everyone"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language"}, "Collaborative Research Cluster: Limits of Variability in Language (SFB 1287)"), "."]),
-                            m("li", "Registration is required just for the Zoom webinar (not for the other platforms, see below).  All presenters are required to register for the webinar.  Other participants need to register if they intend to ask live questions during the Q&As.  If you're not a presenter and do not intend to ask live questions, you can follow the conference on Twitch without registration."),
+                            m("li", "Registration is required just for the Zoom webinar.  All presenters are required to register for the webinar.  Other participants need to register if they intend to ask live questions during the Q&As.  If you're not a presenter and do not intend to ask live questions, you can follow the conference on Twitch without registration."),
                             m("li", [
                                 "To register for the Zoom webinar, please click ",
                                 m("a", {href: zoomregistration_url}, "here"),
                                 ".  After registration, you will receive an e-mail with the meeting details."]),
-                            m("li", "You will need a Zoom account to register."),
                             m("li", "Please register ahead of the conference."),
                             m("ul",
                               m("li", "Speakers and session chairs please register at least two weeks ahead of the conference (20 August) so you can participate in our Zoom training session."),
-                              m("li", "Poster presenters please register one week ahead (27 Aug).")),
-                        ]),
-                        m("h2", "What platforms are used for AMLaP?"),
-                        m("ul", [
-                            m("li", [
-                                "The conference uses four platforms:",
-                                m("ul", [
-                                    m("li", m.trust("<a href=\"https://zoom.us/\">Zoom</a> for talks and live questions during Q&A,")),
-                                    m("li", m.trust("<a href=\"https://www.twitch.tv/\">Twitch</a> for live streaming of the talks and text-based chat,")),
-                                    m("li", m.trust("<a href=\"https://gather.town\">Gather</a> for social interaction via video and text-based chat during breaks and otherswise,")),
-                                    m("li", m.trust("<a href=\"https://meet.jit.si/\">Jitsi</a> for live poster sessions.")),
-                                ])]),
-                            m("li", [
-                                "We tried to keep the barriers for participation as low as possible:",
-                                m("ul", [
-                                    m("li", "No special software needs to be installed to participate in any aspect of the conference.  All platforms are available via recent web browsers (though the native Zoom client might give a slightly better experience than the Zoom web interface)."),
-                                    m("li", "All platforms but Zoom can be used without creating accounts."),
-                                    m("li", "Zoom is only needed if you'd like to ask live questions during the Q&As."),
-                                ])])]),
-                        m("h2", "How can I contribute to the conference apart from watching talks and presenting my research?"),
-                        m("ul", [
-                            m("li", ["We encourage everyone, particularly more senior colleagues, to participate in the social chat on ", m("a", {href: gathertown_url}, "Gather"), ".  Gather will be available 24h but moderators will be present only during the programme."]),
-                            m("li", "If you are a senior researcher, please be approachable to colleagues and particularly early career researchers and students."),
-                            m("li", ["If you are an early career researcher or student, please don't hesitate to politely approach more senior colleagues in the social chat on ", m("a", {href: gathertown_url}, "Gather"), "."]),
+                              m("li", "Poster presenters please register one week ahead (31 Aug).")),
                         ]),
                         m("h2", "How can I watch talks on Zoom?"),
                         m("ul", [
@@ -315,6 +290,7 @@ var Guideline = {
                         m("h2", "How can I ask live questions during Q&As?"),
                         m("ul", [
                             m("li", "Submit your question in the Zoom chat as early as possible.  No need to wait until the end of the talk."),
+                            m("li", "We aim to balance questions from senior and junior participants.  Please indicate your tenure status when asking a question."),
                             m("li", "The session hosts will preselect questions and forward them to the session chair."),
                             m("li", "When your question is selected, we will give you permission to activate your microphone (but not the camera) so you can ask your question directly to the speaker.  Please be ready.  (See question about ensuring good audio quality below.)"),
                             m("li", ["If you didn't get a chance to ask your question, you can talk to the speaker on ", m("a", {href: gathertown_url}, "Gather"), " (see information below).  We encourage speakers to show up there and to be approachable especially to junior researchers."])]),
@@ -336,6 +312,9 @@ var Guideline = {
                             m("li", "Also note the toolbar at the lower left which has some useful functions and settings."),
                             m("li", "In addition to video chat, Gather can also be used to send private text messages to someone."),
                             m("li", "There is also a global chat for broadcasting messages to everyone.  Use it sparingly."),
+                            m("li", "We encourage everyone, particularly more senior colleagues, to participate in the social chat on Gather.  Gather will be available 24h but moderators will be present only during the programme."),
+                            m("li", "If you are a senior researcher, please be approachable to colleagues and particularly early career researchers and students."),
+                            m("li", "If you are an early career researcher or student, please don't hesitate to politely approach more senior colleagues in the social chat on Gather."),
                         ]),
                         m("p", m("a", {class: "btn btn-primary btn mr-1", href: gathertown_url, target: "_blank"}, [Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])),
                         m("h2", "How can I attend live poster presentations?"),
@@ -357,16 +336,16 @@ var Guideline = {
                             m("li", "Preferrably use headphones to avoid feedback loops."),
                             m("li", "Unmute you microphone only when you talk and mute it otherwise."),
                         ]),
-                        m("h2", "Where can I ask more questions?"),
+                        m("h2", "I have a question that is not covered here."),
                         m("ul", [
                             m("li", [
-                                "Speak to a moderator on ",
+                                "Speak to a AMLaP team member on ",
                                 m("a", {href: gathertown_url}, "Gather"),
                                 " or in the ",
                                 m("a", {href: twitch_url}, "Twitch chat"),
-                                "."
+                                ".  Team members can be recognized by their screen names: ", m("i", "Full Name (AMLaP Team)")
                             ]),
-                            m("li", m.trust("Or send us an e-mail at <a href=\"mailto:info@amlap2020.org\">info@amlap2020.org</a>.")),
+                            m("li", m.trust("Or send us an e-mail at: <a href=\"mailto:info@amlap2020.org\">info@amlap2020.org</a>")),
 
                         ]),
                         m("br"),
