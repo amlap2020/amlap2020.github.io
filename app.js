@@ -66,13 +66,13 @@ var Overview = {
                     // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
                     //     Icon("book"), " Proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/all"}, [
-                        Icon("collection"), " Online proceedings"]), m("br"),
+                        Icon("book"), " Online proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics"}, [
-                        Icon("calendar-week"), " Download calendar file (.ics)"]), m("br"),
+                        Icon("calendar-week"), " Download calendar (.ics)"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020_abstracts.zip"}, [
-                        Icon("download"), " Download abstracts (.zip)"]), m("br"),
+                        Icon("collection"), " Download abstracts (.zip)"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
-                        Icon("book"), " Download Bibliography (.bib)"]), m("br"),
+                        Icon("bookshelf"), " Download Bibliography (.bib)"]), m("br"),
                     m("br"),
                 ])]
     }
