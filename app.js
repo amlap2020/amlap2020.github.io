@@ -66,13 +66,13 @@ var Overview = {
                     // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
                     //     Icon("book"), " Proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/all"}, [
-                        Icon("collection"), " Overview of all abstracts"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020_abstracts.zip"}, [
-                        Icon("download"), " Download all abstracts (.zip)"]), m("br"),
+                        Icon("collection"), " Online proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics"}, [
-                        Icon("calendar-week"), " Program as calendar file (.ics)"]), m("br"),
+                        Icon("calendar-week"), " Download calendar file (.ics)"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020_abstracts.zip"}, [
+                        Icon("download"), " Download abstracts (.zip)"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
-                        Icon("book"), " Bibliography (BibTeX)"]), m("br"),
+                        Icon("book"), " Download Bibliography (.bib)"]), m("br"),
                     m("br"),
                 ])]
     }
@@ -290,27 +290,45 @@ var AllAbstracts = {
             ss_talks.push(m(AbstractFactory(p.id, p.authors, p.title)))
         }
 
-        var posters = []
-        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Poster session ")})
+        var posters1 = []
+        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Poster session 1")})
         for (p of abstracts) {
             if (withdrawn.includes(p.id))
                 continue
-            posters.push(m(AbstractFactory(p.id, p.authors, p.title)))
+            posters1.push(m(AbstractFactory(p.id, p.authors, p.title)))
+        }
+        var posters2 = []
+        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Poster session 2")})
+        for (p of abstracts) {
+            if (withdrawn.includes(p.id))
+                continue
+            posters2.push(m(AbstractFactory(p.id, p.authors, p.title)))
+        }
+        var posters3 = []
+        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Poster session 3")})
+        for (p of abstracts) {
+            if (withdrawn.includes(p.id))
+                continue
+            posters3.push(m(AbstractFactory(p.id, p.authors, p.title)))
         }
         
         return [m(Navigation),
                 m("main", {class: "container", id: "main"}, [
                     m("div", {class: "container"}, [
-                        m("h1", {class: "display-4"}, "All abstracts"),
-                        m("p", {class: "lead"}, "All abstracts, ordered by category (keynotes, main session talks, special session talks, posters) and, within category, by abstract ID (not chronological except for keynotes)."),
+                        m("h1", {class: "display-4"}, "Proceedings"),
+                        m("p", {class: "lead"}, "All abstracts, ordered by category (keynotes, main session talks, special session talks, posters) and, within category, by abstract ID (not chronological except for keynotes).  Use your browser's search function if you're looking for something specific."),
                         m("h2", {class: "display-5"}, "Keynotes"),
                         m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", keynotes)]),
                         m("h2", {class: "display-5"}, "Main session"),
                         m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", main_talks)]),
                         m("h2", {class: "display-5"}, "Special session"),
                         m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", ss_talks)]),
-                        m("h2", {class: "display-5"}, "Posters"),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters)]),
+                        m("h2", {class: "display-5"}, "Poster session 1"),
+                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters1)]),
+                        m("h2", {class: "display-5"}, "Poster session 2"),
+                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters2)]),
+                        m("h2", {class: "display-5"}, "Poster session 3"),
+                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters3)]),
                     ]),
                 ])]
 
