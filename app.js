@@ -315,8 +315,8 @@ var AllAbstracts = {
         return [m(Navigation),
                 m("main", {class: "container", id: "main"}, [
                     m("div", {class: "container"}, [
-                        m("h1", {class: "display-4"}, "Proceedings"),
-                        m("p", {class: "lead"}, "All abstracts, ordered by category (keynotes, main session talks, special session talks, posters) and, within category, by abstract ID (not chronological except for keynotes).  Use your browser's search function if you're looking for something specific."),
+                        m("h1", {class: "display-4"}, "Online proceedings"),
+                        m("p", {class: "lead"}, "All abstracts, ordered by category (keynotes, main session talks, special session talks, posters) and by abstract ID within category.  Use your browser's search function if you're looking for something specific."),
                         m("h2", {class: "display-5"}, "Keynotes"),
                         m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", keynotes)]),
                         m("h2", {class: "display-5"}, "Main session"),
