@@ -107,13 +107,13 @@ function SessionFactory(s) {
                     m("br"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf"}, "Abstract")]
             } else if (session.match(/Keynote [1-5].+/)){
-                var n = session.substring(8, 9);
+                var p = presentations.filter(function(p) {return p.id == s.id})[0]
                 session = [
                     m("span", {class: "lead", style: "font-weight: bold"}, session),
                     m("br"),
-                    m("span", {class: "lead"}, m("a", {href: "a/keynote" + n + ".pdf"}, "Title of keynote " + n + " (t.b.a.)")),
+                    m("span", {class: "lead"}, m("a", {href: "a/" + p.id + ".pdf"}, p.title)),
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/keynote" + n + ".pdf"}, "Abstract")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + p.id + ".pdf"}, "Abstract")]
             } else if (session.startsWith("MS Chair:")) {
                 session = 
                     m("center",
