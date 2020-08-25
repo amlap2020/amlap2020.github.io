@@ -62,6 +62,8 @@ var Overview = {
                         Icon("chat-text"), " Talks day 3"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, [
                         Icon("easel"), " Posters day 3"]), m("br"),
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/all"}, [
+                        Icon("collection"), " All abstracts"]), m("br"),
                     m("p", {class: "lead"}, "Resources:"),
                     // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
                     //     Icon("book"), " Proceedings"]), m("br"),
@@ -234,7 +236,7 @@ function PosterSessionFactory(number, date) {
                         m("div", {class: "container"}, [
                             m("h1", {class: "display-4"}, "Poster session " + number),
                             m("p", {class: "lead"}, date),
-                             m(TimeZoneWarning),
+                            m(TimeZoneWarning),
                         ]),
                     m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", l)])
                     ])]
@@ -245,6 +247,73 @@ function PosterSessionFactory(number, date) {
 var PosterSession1 = PosterSessionFactory(1, "Thursday, 3 September 2020, 16:00–17:30 (UTC+2)")
 var PosterSession2 = PosterSessionFactory(2, "Friday, 4 September 2020, 14:00–15:30 (UTC+2)")
 var PosterSession3 = PosterSessionFactory(3, "Saturday, 5 September 2020, 10:00–11:30 (UTC+2)")
+
+function AbstractFactory(id, authors, title, links) {
+    return {
+        view: function() {
+            var a = authors.split("); ")
+            a = a.map(a => [a, "), "])
+            a = a.flat()
+            a.pop()
+            return m("tr", [
+                // m("td", m("a", {class: "lead", href: id+".pdf"}, "#" + id)),
+                m("td", {class: "lead"}, "#" + id),
+                m("td", [
+                    m("a", {class: "lead", href: "a/" + id + ".pdf"}, title),
+                    m("br"), a,
+                ])
+            ])
+        }
+    }
+}
+
+var AllAbstracts = {
+    view: function() {
+        
+        var keynotes = []
+        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Keynote ")})
+        for (p of abstracts) {
+            keynotes.push(m(AbstractFactory(p.id, p.authors, p.title)))
+        }
+
+        var main_talks = []
+        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Main session ")})
+        for (p of abstracts) {
+            main_talks.push(m(AbstractFactory(p.id, p.authors, p.title)))
+        }
+
+        var ss_talks = []
+        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Special session ")})
+        for (p of abstracts) {
+            ss_talks.push(m(AbstractFactory(p.id, p.authors, p.title)))
+        }
+
+        var posters = []
+        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Poster session ")})
+        for (p of abstracts) {
+            if (withdrawn.includes(p.id))
+                continue
+            posters.push(m(AbstractFactory(p.id, p.authors, p.title)))
+        }
+        
+        return [m(Navigation),
+                m("main", {class: "container", id: "main"}, [
+                    m("div", {class: "container"}, [
+                        m("h1", {class: "display-4"}, "All abstracts"),
+                        m("p", {class: "lead"}, "All abstracts, ordered by category (keynotes, main session talks, special session talks, posters) and, within category, by abstract ID (not chronological except for keynotes)."),
+                        m("h2", {class: "display-5"}, "Keynotes"),
+                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", keynotes)]),
+                        m("h2", {class: "display-5"}, "Main session"),
+                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", main_talks)]),
+                        m("h2", {class: "display-5"}, "Special session"),
+                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", ss_talks)]),
+                        m("h2", {class: "display-5"}, "Posters"),
+                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters)]),
+                    ]),
+                ])]
+
+    }
+}
 
 var Guideline = {
     view: function() {
@@ -365,6 +434,7 @@ m.route(document.body, "/overview", {
     "/poster_session_1": PosterSession1,
     "/poster_session_2": PosterSession2,
     "/poster_session_3": PosterSession3,
+    "/all": AllAbstracts,
     "/guideline": Guideline ,
 })
 
