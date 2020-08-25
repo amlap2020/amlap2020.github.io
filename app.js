@@ -65,7 +65,7 @@ var Overview = {
                     m("p", {class: "lead"}, "Resources:"),
                     // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
                     //     Icon("book"), " Proceedings"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/all"}, [
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/proceedings"}, [
                         Icon("book"), " Online proceedings"]), m("br"),
                     m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics"}, [
                         Icon("calendar-week"), " Download calendar (.ics)"]), m("br"),
@@ -269,7 +269,7 @@ function AbstractFactory(id, authors, title, links) {
     }
 }
 
-var AllAbstracts = {
+var Proceedings = {
     view: function() {
         
         var keynotes = []
@@ -454,7 +454,8 @@ m.route(document.body, "/overview", {
     "/poster_session_1": PosterSession1,
     "/poster_session_2": PosterSession2,
     "/poster_session_3": PosterSession3,
-    "/all": AllAbstracts,
+    "/all": Proceedings,
+    "/proceedings": Proceedings,
     "/guideline": Guideline ,
 })
 
