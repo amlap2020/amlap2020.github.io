@@ -410,7 +410,7 @@ var Guideline = {
                         m("h2", "I have a question that's not covered here."),
                         m("ul", [
                             m("li", [
-                                "Speak to a AMLaP team member on ",
+                                "Speak to a AMLaP team members on ",
                                 m("a", {href: gathertown_url}, "Gather"),
                                 " or in the ",
                                 m("a", {href: twitch_url}, "Twitch chat"),
