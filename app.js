@@ -169,8 +169,8 @@ function SessionsFactory(day, date) {
                         m("div", {class: "container mb-3"}, [
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
-                            m("a", {class: "btn btn-primary btn mr-1", href: zoom_url, target: "_blank"}, [Icon("tv"), " Join us on Zoom"]),
-                            m("a", {class: "btn btn-primary btn mr-1", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"]),
+                            m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), " Join us on Zoom"]),
+                            m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"]),
                             m("br"), m("br"), m(TimeZoneWarning),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
@@ -378,8 +378,8 @@ var Guideline = {
                             m("li", "There's no password for the Zoom webinar since we use registration for access control."),
                         ]),
                         m("p", [
-                            m("a", {class: "btn btn-primary btn mr-1", href: zoomregistration_url, target: "_blank"}, [Icon("pencil-square"), " Register for Zoom webinar"]),
-                            m("a", {class: "btn btn-primary btn mr-1", href: zoom_url, target: "_blank"}, [Icon("tv"), " Join Zoom webinar"]),]),
+                            m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoomregistration_url, target: "_blank"}, [Icon("pencil-square"), " Register for Zoom webinar"]),
+                            m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), " Join Zoom webinar"]),]),
                         m("h2", "How can I ask live questions during Q&As?"),
                         m("ul", [
                             m("li", "Submit your questions using the Q&A button in the bottom part of the Zoom window.  You can ask questions at any time; there’s no need to wait until the end of the talk."),
