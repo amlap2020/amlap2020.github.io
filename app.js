@@ -80,7 +80,7 @@ var Overview = {
 
 var TimeZoneWarning = {
     view: function () {
-        return m("div", {class: "alert alert-warning"}, "All times are given in UTC+2, i.e. Central European Summer Time.")
+        return m("div", {class: "alert alert-warning"}, ["All times are given in UTC+2:00, i.e. Central European Summer Time.  For times in your local time zone, please import ", m("a", {href: "AMLaP2020.ics", target:"_blank"}, "our iCalendar file (.ics)"), " into your favorite calendar application."])
     }
 }
 
