@@ -33,7 +33,7 @@ var Navigation = {
         return m("nav", {class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark"},
                  [
                      m("div", {class: "navbar-brand"}, m(m.route.Link, {href: "", class: "navbar-brand"}, "AMLaP 2020 Programme")),
-                     m.trust("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> <span class=\"navbar-toggler-icon\"></span> </button>"),
+                     m.trust("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> <span class=\"navbar-toggler-icon\"></span> </button>"),
                      m("div", {class: "collapse navbar-collapse", id: "navbarNav"}, m("ul", {class: "navbar-nav"}, nav_items)),
                 ])
     }
