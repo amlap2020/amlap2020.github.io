@@ -6,7 +6,7 @@ var gather_url = "https://gather.town/65ZDsKs7IS9aj9V1/amlap2020"
 var jitsi_url_prefix = "https://meet.jit.si/AMLaP2020_poster_"
 
 // The last two are withdrawn because no final abstract was submitted.
-var withdrawn = ["311", "325", "271", "324", "5", "296", "306", "144", "78", "3", "36", "203", "294"]
+var withdrawn = ["311", "325", "271", "324", "5", "296", "306", "144", "78", "3", "36", "287", "203", "294"]
 
 function Icon(name) {
     return m("img", {src: "bootstrap-icons/" + name + ".svg", width: 24, height: 24}, "")
