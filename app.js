@@ -2,7 +2,7 @@
 var zoom_url = "https://zoom.us/j/93957569698"
 var zoomregistration_url = "https://zoom.us/webinar/register/WN_PVp8hJ63Sle9L0yGaqzrRQ"
 var twitch_url = "https://twitch.tv/amlap2020"
-var gathertown_url = "https://gather.town/65ZDsKs7IS9aj9V1/amlap2020"
+var gather_url = "https://gather.town/65ZDsKs7IS9aj9V1/amlap2020"
 var jitsi_url_prefix = "https://meet.jit.si/AMLaP2020_poster_"
 
 // The last two are withdrawn because no final abstract was submitted.
@@ -16,23 +16,23 @@ var Navigation = {
     view: function() {
         var x = function(route) {if (route == m.route.get()) {return "nav-link active"} else {return "nav-link"}}
         var nav_items = [
+            m("li", {class: "nav-item"}, m(m.route.Link, {class: x("/guideline"), href: "guideline"}, "Conference Guide")),
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Talk Schedule"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/sessions1"), href: "#!/sessions1"}, "Day 1 (3 Sept)"),
-                   m("a", {class: x("/sessions2"), href: "#!/sessions2"}, "Day 2 (4 Sept)"),
-                   m("a", {class: x("/sessions3"), href: "#!/sessions3"}, "Day 3 (5 Sept)")])]),
+                   m(m.route.Link, {class: x("/sessions1"), href: "sessions1"}, "Day 1 (3 Sept)"),
+                   m(m.route.Link, {class: x("/sessions2"), href: "sessions2"}, "Day 2 (4 Sept)"),
+                   m(m.route.Link, {class: x("/sessions3"), href: "/sessions3"}, "Day 3 (5 Sept)")])]),
             m("li", {class: "nav-item dropdown"},
               [m("a", {class: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role:"button", 'data-toggle': "dropdown", 'aria-haspopup': "true", 'aria-expanded': "false"}, "Poster Sessions"),
                m("div", {class: "dropdown-menu", 'aria-labelledby':"navbarDropdown"}, [
-                   m("a", {class: x("/poster_session_1"), href: "#!/poster_session_1"}, "Day 1 (3 Sept)"),
-                   m("a", {class: x("/poster_session_2"), href: "#!/poster_session_2"}, "Day 2 (4 Sept)"),
-                   m("a", {class: x("/poster_session_3"), href: "#!/poster_session_3"}, "Day 3 (5 Sept)")])]),
-            m("li", {class: "nav-item"}, m("a", {class: x("/guideline"), href: "#!/guideline"}, "Conference Guide")),
+                   m(m.route.Link, {class: x("/poster_session_1"), href: "poster_session_1"}, "Day 1 (3 Sept)"),
+                   m(m.route.Link, {class: x("/poster_session_2"), href: "poster_session_2"}, "Day 2 (4 Sept)"),
+                   m(m.route.Link, {class: x("/poster_session_3"), href: "poster_session_3"}, "Day 3 (5 Sept)")])]),
         ]
         return m("nav", {class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark"},
                  [
-                     m("div", {class: "navbar-brand"}, m("a", {href: "#", class: "navbar-brand"}, "AMLaP 2020 Programme")),
+                     m("div", {class: "navbar-brand"}, m(m.route.Link, {href: "", class: "navbar-brand"}, "AMLaP 2020 Programme")),
                      m.trust("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> <span class=\"navbar-toggler-icon\"></span> </button>"),
                      m("div", {class: "collapse navbar-collapse", id: "navbarNav"}, m("ul", {class: "navbar-nav"}, nav_items)),
                 ])
@@ -45,33 +45,31 @@ var Overview = {
                 m("main", {class: "container"}, [
                     m("h1", {class: "display-4"}, "Main Menu"),
                     m("p", {class: "lead"}, "First things first:"),
-                    m("a", {class: "btn btn-info btn-lg btn-block", href: "#!/guideline"}, [
+                    m(m.route.Link, {class: "btn btn-info btn-lg btn-block", href: "guideline"}, [
                         Icon("map"), " Conference guide"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: zoomregistration_url}, [
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: zoomregistration_url, target: "_blank"}, [
                         Icon("pencil-square"), " Register for Zoom webinar"]), m("br"),
                     m("p", {class: "lead"}, "Programme:"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions1"}, [
+                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions1"}, [
                         Icon("chat-text"), " Talks day 1"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_1"}, [
+                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_1"}, [
                         Icon("easel"), " Posters day 1"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions2"}, [
+                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions2"}, [
                         Icon("chat-text"), " Talks day 2"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_2"}, [
+                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_2"}, [
                         Icon("easel"), " Posters day 2"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/sessions3"}, [
+                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions3"}, [
                         Icon("chat-text"), " Talks day 3"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/poster_session_3"}, [
+                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_3"}, [
                         Icon("easel"), " Posters day 3"]), m("br"),
                     m("p", {class: "lead"}, "Resources:"),
-                    // m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.pdf"}, [
-                    //     Icon("book"), " Proceedings"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "#!/proceedings"}, [
+                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "proceedings"}, [
                         Icon("book"), " Online proceedings"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics"}, [
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics", target:"_blank"}, [
                         Icon("calendar-week"), " Download calendar (.ics)"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020_abstracts.zip"}, [
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020_abstracts.zip", target:"_blank"}, [
                         Icon("collection"), " Download abstracts (.zip)"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib"}, [
+                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib", target:"_blank"}, [
                         Icon("bookshelf"), " Download Bibliography (.bib)"]), m("br"),
                     m("br"),
                 ])]
@@ -104,20 +102,20 @@ function SessionFactory(s) {
                     badge = [m("span", {class: "badge badge-pill badge-success"}, "Special Session"), " "]
                 session = [
                     badge,
-                    m("a", {class: "lead", href: "a/" + p.id + ".pdf"}, p.title),
+                    m("a", {class: "lead", href: "a/" + p.id + ".pdf", target:"_blank"}, p.title),
                     m("br"), p.authors],
                 session = [
                     session,
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf"}, "Abstract")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf", target:"_blank"}, "Abstract")]
             } else if (session.match(/Keynote [1-5].+/)){
                 var p = presentations.filter(function(p) {return p.id == s.id})[0]
                 session = [
                     m("span", {class: "lead", style: "font-weight: bold"}, session),
                     m("br"),
-                    m("span", {class: "lead"}, m("a", {href: "a/" + p.id + ".pdf"}, p.title)),
+                    m("span", {class: "lead"}, m("a", {href: "a/" + p.id + ".pdf", target:"_blank"}, p.title)),
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + p.id + ".pdf"}, "Abstract")]
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + p.id + ".pdf", target:"_blank"}, "Abstract")]
             } else if (session.startsWith("MS Chair:")) {
                 session = 
                     m("center",
@@ -131,20 +129,20 @@ function SessionFactory(s) {
                        m("br"),
                        "Chair: ", session.split(": ")[1]])
             } else if (session == "Poster session 1") {
-                session = m("a", {href: "#!/poster_session_1", class: "lead", style: "font-weight: bold"}, session)
+                session = m(m.route.Link, {href: "poster_session_1", class: "lead", style: "font-weight: bold"}, session)
             } else if (session == "Poster session 2") {
-                session = m("a", {href: "#!/poster_session_2", class: "lead", style: "font-weight: bold"}, session)
+                session = m(m.route.Link, {href: "poster_session_2", class: "lead", style: "font-weight: bold"}, session)
             } else if (session == "Poster session 3") {
-                session = m("a", {href: "#!/poster_session_3", class: "lead", style: "font-weight: bold"}, session)
+                session = m(m.route.Link, {href: "poster_session_3", class: "lead", style: "font-weight: bold"}, session)
             } else if (session.match(/Social chat/)) {
                 session = m("center", [
                     m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
-                    m("a", {class: "btn btn-primary btn-sm mr-1", href: gathertown_url, target: "_blank"}, [
+                    m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
                         Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])])
             } else if (session.match(/.+ break/)) {
                 session = m("center", [
                     m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
-                    m("a", {class: "btn btn-primary btn-sm mr-1", href: gathertown_url, target: "_blank"}, [
+                    m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
                         Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])])
             } else {
                 session = m("center", {class: "lead", style: "font-weight: bold"}, session)
@@ -215,9 +213,9 @@ function PosterFactory(id, authors, title, links) {
                     m("br"),
                     a,
                     m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + id + ".pdf"}, "Abstract"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + "_poster.pdf"}, "Intro"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: jitsi_url_prefix + id}, "Video Q&A"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + id + ".pdf", target: "_blank"}, "Abstract"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + "_intro.pdf", target: "_blank"}, "Intro"),
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: jitsi_url_prefix + id, target: "_blank"}, "Video Q&A"),
                 ])
             ])
         }
@@ -260,10 +258,9 @@ function AbstractFactory(id, authors, title, links) {
             a = a.flat()
             a.pop()
             return m("tr", [
-                // m("td", m("a", {class: "lead", href: id+".pdf"}, "#" + id)),
                 m("td", {class: "lead"}, "#" + id),
                 m("td", [
-                    m("a", {class: "lead", href: "a/" + id + ".pdf"}, title),
+                    m("a", {class: "lead", href: "a/" + id + ".pdf", target: "_blank"}, title),
                     m("br"), a,
                 ])
             ])
@@ -349,24 +346,26 @@ var Guideline = {
                         m("h2", "I have 1min.  What do I need to know?"),
                         m("ol", [
                             m("li", "AMLaP 2020 has a synchronous format."),
-                            m("li", ["We use Zoom for talks.  Please register ", m("a", {href: zoomregistration_url}, "here"), " for the webinar."]),
-                            m("li", ["Talks will also be streamed on ", m("a", {href: twitch_url}, "Twitch"), " (no registration required)."]),
-                            m("li", ["For more casual interaction during breaks and otherwise we use ", m("a", {href: gathertown_url}, "Gather"), "."]),
+                            m("li", ["We use Zoom for talks.  Please register ", m("a", {href: zoomregistration_url, target: "_blank"}, "here"), " for the webinar."]),
+                            m("li", ["Talks will also be streamed on ", m("a", {href: twitch_url, target: "_blank"}, "Twitch"), " (no registration required)."]),
+                            m("li", ["For more casual interaction during breaks and otherwise we use ", m("a", {href: gather_url, target: "_blank"}, "Gather"), "."]),
                             m("li", ["For poster presentations we offer Jitsi rooms.  Click the buttons ",
-                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/guideline"}, "Video Q&A"),
+                                     m(m.route.Link, {class: "btn btn-primary btn-sm py-0 mr-1", href: "guideline"}, "Video Q&A"),
                                      "in the program."]),
                             m("li", ["On all platforms, please use the following format for your screen name: ", m("b", "Full Name (Affilitation)"), " or just your full name if you currently don't have an affilitation."]),
                             m("li", "Be nice and have fun!"),
                         ]),
                         m("h2", "Does the conference have a code of conduct?"),
-                        m("p", m.trust("Yes, we do.  Our <a href=\"https://amlap2020.org/code-of-conduct\">code of conduct</a> applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")),
+                        m("ol", [
+                            m("li", ["Our code of conduct can be found ", m("a", {href:"https://amlap2020.org/code-of-conduct", target:"_blank"}, "here"), "."]),
+                            m("li", "It applies throughout the conference and on all platforms (Zoom, Twitch, Gather, Jitsi).")]),
                         m("h2", "Do I have to register for AMLaP 2020 and pay a registration fee?"),
                         m("ul", [
-                            m("li", ["AMLaP 2020 will be ", m("strong", "completely free for everyone"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language"}, "Collaborative Research Cluster: Limits of Variability in Language (SFB 1287)"), "."]),
+                            m("li", ["AMLaP 2020 will be ", m("strong", "completely free for everyone"), ".  Thanks to our sponsor, the ", m("a", {href: "https://www.uni-potsdam.de/en/ling/researchgroups/sfb-1287-limits-of-variability-in-language", target:"_blank"}, "Collaborative Research Cluster: Limits of Variability in Language (SFB 1287)"), "."]),
                             m("li", "Registration is required just for the Zoom webinar.  All presenters are required to register for the webinar.  Other participants need to register if they intend to ask live questions during the Q&As.  If you're not a presenter and do not intend to ask live questions, you can follow the conference on Twitch without registration."),
                             m("li", [
                                 "To register for the Zoom webinar, please click ",
-                                m("a", {href: zoomregistration_url}, "here"),
+                                m("a", {href: zoomregistration_url, target: "_blank"}, "here"),
                                 ".  After registration, you will receive an e-mail with the meeting details."]),
                             m("li", "Please register ahead of the conference."),
                             m("ul",
@@ -387,7 +386,7 @@ var Guideline = {
                             m("li", "We aim to balance questions from senior and junior participants.  Please indicate your tenure status when asking a question."),
                             m("li", "The session hosts will preselect questions and forward them to the session chair."),
                             m("li", "When your question is selected, we will give you permission to activate your microphone (but not the camera) so you can ask your question directly to the speaker.  Please be ready.  (See question about ensuring good audio quality below.)"),
-                            m("li", ["If you didn't get a chance to ask your question, you can talk to the speaker on ", m("a", {href: gathertown_url}, "Gather"), " (see information below).  We encourage speakers to show up there and to be approachable especially to junior researchers."])]),
+                            m("li", ["If you didn't get a chance to ask your question, you can talk to the speaker on ", m("a", {href: gather_url, target: "_blank"}, "Gather"), " (see information below).  We encourage speakers to show up there and to be approachable especially to junior researchers."])]),
                         m("h2", "How can I watch talks on Twitch?"),
                         m("ul", [
                             m("li", "Talks will also be livestreamed on Twitch."),
@@ -409,16 +408,16 @@ var Guideline = {
                             m("li", "If you are an early career researcher or student, please don't hesitate to politely approach more senior colleagues in the social chat on Gather."),
                             m("li", "Gather will be available 24h but moderators will be present only during the programme (9:00 to 18:00 CEST)."),
                         ]),
-                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: gathertown_url, target: "_blank"}, [Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])),
+                        m("p", m("a", {class: "btn btn-primary btn mr-1", href: gather_url, target: "_blank"}, [Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])),
                         m("h2", "How can I attend live poster presentations?"),
                         m("ul", [
                             m("li", "For live poster presentations we offer Jitsi video chats, one for each poster."),
                             m("li", ["To access a live poster presentation, use the button ",
-                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/guideline"}, "Video Q&A"),
+                                     m(m.route.Link, {class: "btn btn-primary btn-sm py-0 mr-1", href: "guideline"}, "Video Q&A"),
                                      "in the overview of the poster sessions."]),
                             // m("li", "If presenters wish to use an alternative platform for their poster presentation, they can supply us with a link ahead of the conference when registering on Zoom and we'll include it in the program  instead of the Jitsi button.  In case you make use of this option, please make extra sure that the link works properly."),
                             m("li", ["Poster presenters are invited to prepare a short intro to their poster (e.g., a video or slides).  Please use the ",
-                                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "#!/guideline"}, "Intro"),
+                                     m(m.route.Link, {class: "btn btn-primary btn-sm py-0 mr-1", href: "guideline"}, "Intro"),
                                      "buttons in the poster overview to access it."]), 
                         ]),
                         m("h2", "How can I ensure good audio quality when using Zoom and Jitsi?"),
@@ -433,13 +432,12 @@ var Guideline = {
                         m("ul", [
                             m("li", [
                                 "Speak to a AMLaP team members on ",
-                                m("a", {href: gathertown_url}, "Gather"),
+                                m("a", {href: gather_url, target: "_blank"}, "Gather"),
                                 " or in the ",
-                                m("a", {href: twitch_url}, "Twitch chat"),
+                                m("a", {href: twitch_url, target: "_blank"}, "Twitch chat"),
                                 ".  Team members can be recognized by their screen names: ", m("i", "Full Name (AMLaP Team)")
                             ]),
-                            m("li", m.trust("Or send us an e-mail at: <a href=\"mailto:info@amlap2020.org\">info@amlap2020.org</a>")),
-
+                            m("li", ["Or send us an e-mail at: ", m("a", {href:"mailto:info@amlap2020.org"}, "info@amlap2020.org")]),
                         ]),
                         m("br"),
                         m("br"),
