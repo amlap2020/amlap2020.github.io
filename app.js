@@ -30,7 +30,7 @@ var Navigation = {
                    m(m.route.Link, {class: x("/poster_session_2"), href: "poster_session_2"}, "Day 2 (4 Sept)"),
                    m(m.route.Link, {class: x("/poster_session_3"), href: "poster_session_3"}, "Day 3 (5 Sept)")])]),
         ]
-        return m("nav", {class: "navbar sticky-top navbar-expand-lg navbar-dark bg-dark"},
+        return m("nav", {class: "navbar sticky-top navbar-expand-md navbar-dark bg-dark"},
                  [
                      m("div", {class: "navbar-brand"}, m(m.route.Link, {href: "", class: "navbar-brand"}, "AMLaP 2020 Programme")),
                      m.trust("<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"> <span class=\"navbar-toggler-icon\"></span> </button>"),
@@ -240,7 +240,7 @@ function PosterSessionFactory(number, date) {
                             m("p", {class: "lead"}, date),
                             m(TimeZoneWarning),
                         ]),
-                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", l)])
+                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", l)])
                     ])]
         }
     }
@@ -317,19 +317,23 @@ var Proceedings = {
                     m("div", {class: "container"}, [
                         m("h1", {class: "display-4"}, "Online proceedings"),
                         m("p", {class: "lead"}, "All abstracts, ordered by category (keynotes, main session talks, special session talks, posters) and by abstract ID within category.  Use your browser's search function if you're looking for something specific."),
-                        m("h2", {class: "display-5"}, "Keynotes"),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", keynotes)]),
-                        m("h2", {class: "display-5"}, "Main session"),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", main_talks)]),
-                        m("h2", {class: "display-5"}, "Special session"),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", ss_talks)]),
-                        m("h2", {class: "display-5"}, "Poster session 1"),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters1)]),
-                        m("h2", {class: "display-5"}, "Poster session 2"),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters2)]),
-                        m("h2", {class: "display-5"}, "Poster session 3"),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters3)]),
-                    ]),
+                        m("h2", {class: "display-5"}, "Keynotes")]),
+                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", keynotes)]),
+                    m("div", {class: "container"}, [
+                        m("h2", {class: "display-5"}, "Main session")]),
+                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", main_talks)]),
+                    m("div", {class: "container"}, [
+                        m("h2", {class: "display-5"}, "Special session")]),
+                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", ss_talks)]),
+                    m("div", {class: "container"}, [
+                        m("h2", {class: "display-5"}, "Poster session 1")]),
+                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters1)]),
+                    m("div", {class: "container"}, [
+                        m("h2", {class: "display-5"}, "Poster session 2")]),
+                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters2)]),
+                    m("div", {class: "container"}, [
+                        m("h2", {class: "display-5"}, "Poster session 3")]),
+                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters3)]),
                 ])]
 
     }
