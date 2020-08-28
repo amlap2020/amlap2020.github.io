@@ -157,7 +157,7 @@ function SessionFactory(s) {
 
 function SessionsFactory(day, date) {
     return {
-        // oncreate: function() { scrollTo(0,0) },
+        oncreate: function() { scrollTo(0,0) },
         view: function() {
             var l = []
             for (s of amlap2020schedule) {
@@ -224,7 +224,7 @@ function PosterFactory(id, authors, title, links) {
 
 function PosterSessionFactory(number, date) {
     return {
-        // oncreate: function() { scrollTo(0,0) },
+        oncreate: function() { scrollTo(0,0) },
         view: function() {
             var l = []
             for (p of presentations) {
@@ -269,7 +269,7 @@ function AbstractFactory(id, authors, title, links) {
 }
 
 var Proceedings = {
-    // oncreate: function() { scrollTo(0,0) },
+    oncreate: function() { scrollTo(0,0) },
     view: function() {
         
         var keynotes = []
@@ -340,7 +340,7 @@ var Proceedings = {
 }
 
 var Guideline = {
-    // oncreate: function() { scrollTo(0,0) },
+    oncreate: function() { scrollTo(0,0) },
     view: function() {
         return [m(Navigation),
                 m("main", {class: "container", id: "main"}, [
