@@ -205,6 +205,17 @@ function PosterFactory(id, authors, title, links) {
             a = a.map(a => [a, "), "])
             a = a.flat()
             a.pop()
+            var x = intros_qas.filter(function(i) {return i.id == id})
+            var intro_button = ""
+            var qa_url = jitsi_url_prefix + id
+            if (x.length==1) {
+                if (x[0].intro) {
+                    intro_button = m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: x[0].intro, target: "_blank"}, "Intro")
+                }
+                if (x[0].qa) {
+                    qa_url = x[0].qa
+                }
+            }
             return m("tr", [
                 // m("td", m("a", {class: "lead", href: id+".pdf"}, "#" + id)),
                 m("td", {class: "lead"}, "#" + id),
@@ -214,8 +225,8 @@ function PosterFactory(id, authors, title, links) {
                     a,
                     m("br"),
                     m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + id + ".pdf", target: "_blank"}, "Abstract"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: id + "_intro.pdf", target: "_blank"}, "Intro"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: jitsi_url_prefix + id, target: "_blank"}, "Video Q&A"),
+                    intro_button,
+                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: qa_url, target: "_blank"}, "Video Q&A"),
                 ])
             ])
         }
