@@ -42,37 +42,38 @@ var Navigation = {
 var Overview = {
     view: function() {
         return [m(Navigation),
-                m("main", {class: "container"}, [
-                    m("h1", {class: "display-4"}, "Main Menu"),
-                    m("p", {class: "lead"}, "First things first:"),
-                    m(m.route.Link, {class: "btn btn-info btn-lg btn-block", href: "guideline"}, [
-                        Icon("map"), " Conference guide"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: zoomregistration_url, target: "_blank"}, [
-                        Icon("pencil-square"), " Register for Zoom webinar"]), m("br"),
-                    m("p", {class: "lead"}, "Programme:"),
-                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions1"}, [
-                        Icon("chat-text"), " Talks day 1"]), m("br"),
-                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_1"}, [
-                        Icon("easel"), " Posters day 1"]), m("br"),
-                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions2"}, [
-                        Icon("chat-text"), " Talks day 2"]), m("br"),
-                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_2"}, [
-                        Icon("easel"), " Posters day 2"]), m("br"),
-                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions3"}, [
-                        Icon("chat-text"), " Talks day 3"]), m("br"),
-                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_3"}, [
-                        Icon("easel"), " Posters day 3"]), m("br"),
-                    m("p", {class: "lead"}, "Resources:"),
-                    m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "proceedings"}, [
-                        Icon("book"), " Online proceedings"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics", target:"_blank"}, [
-                        Icon("calendar-week"), " Download calendar (.ics)"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020_abstracts.zip", target:"_blank"}, [
-                        Icon("collection"), " Download abstracts (.zip)"]), m("br"),
-                    m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib", target:"_blank"}, [
-                        Icon("bookshelf"), " Download Bibliography (.bib)"]), m("br"),
-                    m("br"),
-                ])]
+                m("main", {class: "container", id: "main"}, 
+                  m("div", {class: "container-md mb-3"}, [
+                      m("h1", {class: "display-4"}, "Main Menu"),
+                      m("p", {class: "lead"}, "First things first:"),
+                      m(m.route.Link, {class: "btn btn-info btn-lg btn-block", href: "guideline"}, [
+                          Icon("map"), " Conference guide"]), m("br"),
+                      m("a", {class: "btn btn-primary btn-lg btn-block", href: zoomregistration_url, target: "_blank"}, [
+                          Icon("pencil-square"), " Register for Zoom webinar"]), m("br"),
+                      m("p", {class: "lead"}, "Programme:"),
+                      m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions1"}, [
+                          Icon("chat-text"), " Talks day 1"]), m("br"),
+                      m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_1"}, [
+                          Icon("easel"), " Posters day 1"]), m("br"),
+                      m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions2"}, [
+                          Icon("chat-text"), " Talks day 2"]), m("br"),
+                      m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_2"}, [
+                          Icon("easel"), " Posters day 2"]), m("br"),
+                      m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions3"}, [
+                          Icon("chat-text"), " Talks day 3"]), m("br"),
+                      m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_3"}, [
+                          Icon("easel"), " Posters day 3"]), m("br"),
+                      m("p", {class: "lead"}, "Conference bag:"),
+                      m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "proceedings"}, [
+                          Icon("book"), " Online proceedings"]), m("br"),
+                      m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics", target:"_blank"}, [
+                          Icon("calendar-week"), " Download calendar (.ics)"]), m("br"),
+                      m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020_abstracts.zip", target:"_blank"}, [
+                          Icon("collection"), " Download abstracts (.zip)"]), m("br"),
+                      m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.bib", target:"_blank"}, [
+                          Icon("bookshelf"), " Download Bibliography (.bib)"]), m("br"),
+                      m("br"),
+                  ]))]
     }
 }
 
@@ -160,7 +161,7 @@ function SessionsFactory(day, date) {
         view: function() {
             return [m(Navigation),
                     m("main", {class: "container", id: "main"}, [
-                        m("div", {class: "container mb-3"}, [
+                        m("div", {class: "container-md mb-3"}, [
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
                             m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), " Join us on Zoom"]),
@@ -238,7 +239,7 @@ function PosterSessionFactory(number, date) {
         view: function() {
             return [m(Navigation),
                     m("main", {class: "container", id: "main"}, [
-                        m("div", {class: "container"}, [
+                        m("div", {class: "container-md mb-3"}, [
                             m("h1", {class: "display-4"}, "Poster session " + number),
                             m("p", {class: "lead"}, date),
                             m(TimeZoneWarning),
@@ -290,24 +291,24 @@ var Proceedings = {
     view: function() {
         return [m(Navigation),
                 m("main", {class: "container", id: "main"}, [
-                    m("div", {class: "container"}, [
+                    m("div", {class: "container-md mb-3"}, [
                         m("h1", {class: "display-4"}, "Online proceedings"),
                         m("p", {class: "lead"}, "All abstracts, ordered by category (keynotes, main session talks, special session talks, posters) and by abstract ID within category.  Use your browser's search function if you're looking for something specific."),
                         m("h2", {class: "display-5"}, "Keynotes")]),
                     m(ProceedingsTable, {only: p => p.session.startsWith("Keynote ")}),
-                    m("div", {class: "container"}, [
+                    m("div", {class: "container-md mb-3"}, [
                         m("h2", {class: "display-5"}, "Main session")]),
                     m(ProceedingsTable, {only: p => p.session.startsWith("Main session ")}),
-                    m("div", {class: "container"}, [
+                    m("div", {class: "container-md mb-3"}, [
                         m("h2", {class: "display-5"}, "Special session")]),
                     m(ProceedingsTable, {only: p => p.session.startsWith("Special session ")}),
-                    m("div", {class: "container"}, [
+                    m("div", {class: "container-md mb-3"}, [
                         m("h2", {class: "display-5"}, "Poster session 1")]),
                     m(ProceedingsTable, {only: p => p.session.startsWith("Poster session 1") && !withdrawn.includes(p.id)}),
-                    m("div", {class: "container"}, [
+                    m("div", {class: "container-md mb-3"}, [
                         m("h2", {class: "display-5"}, "Poster session 2")]),
                     m(ProceedingsTable, {only: p => p.session.startsWith("Poster session 2") && !withdrawn.includes(p.id)}),
-                    m("div", {class: "container"}, [
+                    m("div", {class: "container-md mb-3"}, [
                         m("h2", {class: "display-5"}, "Poster session 3")]),
                     m(ProceedingsTable, {only: p => p.session.startsWith("Poster session 3") && !withdrawn.includes(p.id)}),
                 ])]
@@ -320,7 +321,7 @@ var Guideline = {
     view: function() {
         return [m(Navigation),
                 m("main", {class: "container", id: "main"}, [
-                    m("div", {class: "container mb-3"}, [
+                    m("div", {class: "container-md mb-3"}, [
                         m("h1", {class: "display-4"}, "AMLaP 2020 Conference Guide"),
                         m("p", {class: "lead"}, "Here we briefly explain how you can (and should) participate in the conference.  To get the best possible AMLaP experience, please take a moment to review this information."),
                         m("h2", "I have 1min.  What do I need to know?"),
@@ -378,6 +379,7 @@ var Guideline = {
                         m("p", m("a", {class: "btn btn-primary btn mr-1", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"])),
                         m("h2", "How can I use Gather to interact socially with other participants?"),
                         m("ul", [
+                            m.trust("<center style=\"margin: 2em;\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/01wxN1mEWbY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></center>"),
                             m("li", "Gather is a virtual conference building in which you can walk around and meet people.  We use Gather as our atrium, a place were participants can chat casually, catch up with each other, discuss presentations, ask presenters further questions, and so on.  Gather looks a little silly at first, but it works quite well and can be great fun.  So give it a try!"),
                             m("li", "When you steer your avatar close to a person, you will automatically be connected with them via video chat.  Don't be shy!"),
                             m("li", "To locate someone use the search function in the 'Participants' box on the right."),
