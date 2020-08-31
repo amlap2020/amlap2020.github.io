@@ -91,67 +91,66 @@ var SessionsTableHeader = {
     }
 }
 
-function SessionFactory(s) {
-    return {
-        view: function() {
-            var session = s.session
-            if (s.id != null && !isNaN(+s.id)) {  // Regular Talk
-                var p = presentations.filter(function(p) {return p.id == s.id})[0]
-                var badge = []
-                if (s.session.startsWith("Special session"))
-                    badge = [m("span", {class: "badge badge-pill badge-success"}, "Special Session"), " "]
-                session = [
-                    badge,
-                    m("a", {class: "lead", href: "a/" + p.id + ".pdf", target:"_blank"}, p.title),
-                    m("br"), p.authors],
-                session = [
-                    session,
-                    m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf", target:"_blank"}, "Abstract")]
-            } else if (session.match(/Keynote [1-5].+/)){
-                var p = presentations.filter(function(p) {return p.id == s.id})[0]
-                session = [
-                    m("span", {class: "lead", style: "font-weight: bold"}, session),
-                    m("br"),
-                    m("span", {class: "lead"}, m("a", {href: "a/" + p.id + ".pdf", target:"_blank"}, p.title)),
-                    m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + p.id + ".pdf", target:"_blank"}, "Abstract")]
-            } else if (session.startsWith("MS Chair:")) {
-                session = 
-                    m("center",
-                      [m("span", {class: "lead", style: "font-weight: bold"}, "Main session:"),
-                       m("br"),
-                       "Chair: ", session.split(": ")[1]])
-            } else if (session.startsWith("SS Chair:")) {
-                session = 
-                    m("center",
-                      [m("span", {class: "lead", style: "font-weight: bold"}, "Special session: Computational models of language processing"),
-                       m("br"),
-                       "Chair: ", session.split(": ")[1]])
-            } else if (session == "Poster session 1") {
-                session = m(m.route.Link, {href: "poster_session_1", class: "lead", style: "font-weight: bold"}, session)
-            } else if (session == "Poster session 2") {
-                session = m(m.route.Link, {href: "poster_session_2", class: "lead", style: "font-weight: bold"}, session)
-            } else if (session == "Poster session 3") {
-                session = m(m.route.Link, {href: "poster_session_3", class: "lead", style: "font-weight: bold"}, session)
-            } else if (session.match(/Social chat/)) {
-                session = m("center", [
-                    m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
-                    m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
-                        Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])])
-            } else if (session.match(/.+ break/)) {
-                session = m("center", [
-                    m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
-                    m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
-                        Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])])
-            } else {
-                session = m("center", {class: "lead", style: "font-weight: bold"}, session)
-            }
-            return m("tr", [
-                m("td", {class: "lead"}, s.start + "﻿–﻿" + s.end),
-                m("td", session),
-            ])
+var Session = {
+    view: function(vnode) {
+        var s = vnode.attrs.sessionData
+        var session = s.session
+        if (s.id != null && !isNaN(+s.id)) {  // Regular Talk
+            var p = presentations.filter(function(p) {return p.id == s.id})[0]
+            var badge = []
+            if (s.session.startsWith("Special session"))
+                badge = [m("span", {class: "badge badge-pill badge-success"}, "Special Session"), " "]
+            session = [
+                badge,
+                m("a", {class: "lead", href: "a/" + p.id + ".pdf", target:"_blank"}, p.title),
+                m("br"), p.authors],
+            session = [
+                session,
+                m("br"),
+                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf", target:"_blank"}, "Abstract")]
+        } else if (session.match(/Keynote [1-5].+/)){
+            var p = presentations.filter(function(p) {return p.id == s.id})[0]
+            session = [
+                m("span", {class: "lead", style: "font-weight: bold"}, session),
+                m("br"),
+                m("span", {class: "lead"}, m("a", {href: "a/" + p.id + ".pdf", target:"_blank"}, p.title)),
+                m("br"),
+                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + p.id + ".pdf", target:"_blank"}, "Abstract")]
+        } else if (session.startsWith("MS Chair:")) {
+            session = 
+                m("center",
+                  [m("span", {class: "lead", style: "font-weight: bold"}, "Main session:"),
+                   m("br"),
+                   "Chair: ", session.split(": ")[1]])
+        } else if (session.startsWith("SS Chair:")) {
+            session = 
+                m("center",
+                  [m("span", {class: "lead", style: "font-weight: bold"}, "Special session: Computational models of language processing"),
+                   m("br"),
+                   "Chair: ", session.split(": ")[1]])
+        } else if (session == "Poster session 1") {
+            session = m(m.route.Link, {href: "poster_session_1", class: "lead", style: "font-weight: bold"}, session)
+        } else if (session == "Poster session 2") {
+            session = m(m.route.Link, {href: "poster_session_2", class: "lead", style: "font-weight: bold"}, session)
+        } else if (session == "Poster session 3") {
+            session = m(m.route.Link, {href: "poster_session_3", class: "lead", style: "font-weight: bold"}, session)
+        } else if (session.match(/Social chat/)) {
+            session = m("center", [
+                m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
+                m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
+                    Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])])
+        } else if (session.match(/.+ break/)) {
+            session = m("center", [
+                m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
+                m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
+                    Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])])
+        } else {
+            session = m("center", {class: "lead", style: "font-weight: bold"}, session)
         }
+        return m("tr", [
+            m("td", {class: "lead"}, s.start + "﻿–﻿" + s.end),
+            m("td", session),
+        ])
     }
 }
 
@@ -159,11 +158,6 @@ function SessionsFactory(day, date) {
     return {
         oncreate: function() { scrollTo(0,0) },
         view: function() {
-            var l = []
-            for (s of amlap2020schedule) {
-                if (s.day == day)
-                    l.push(m(SessionFactory(s)))
-            }
             return [m(Navigation),
                     m("main", {class: "container", id: "main"}, [
                         m("div", {class: "container mb-3"}, [
@@ -175,7 +169,9 @@ function SessionsFactory(day, date) {
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
                             m(SessionsTableHeader),
-                            m("tbody", l),
+                            m("tbody", amlap2020schedule.filter(s => s.day == day).map(s =>
+                                m(Session, {sessionData: s})
+                            )),
                         ]),
                     ])
                    ]
@@ -196,40 +192,43 @@ var PosterTableHeader = {
     }
 }
 
-function PosterFactory(id, authors, title, links) {
-    return {
-        view: function() {
-            var a = authors.split("); ")
-            // var a = authors.replace(/ \([^()]+\)/g, "").replace(/ \([^()]+\)/g, "").split("; ")
-            // a = a.map(a => [m("a", {href: "#!/authors"}, a), ", "])
-            a = a.map(a => [a, "), "])
-            a = a.flat()
-            a.pop()
-            var x = intros_qas.filter(function(i) {return i.id == id})
-            var intro_button = ""
-            var qa_url = jitsi_url_prefix + id
-            if (x.length==1) {
-                if (x[0].intro) {
-                    intro_button = m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: x[0].intro, target: "_blank"}, "Intro")
-                }
-                if (x[0].qa) {
-                    qa_url = x[0].qa
-                }
+var Authors = {
+    view: function(vnode) {
+        var authors = vnode.attrs.authors
+        return authors.split("); ").map(a => [a, "), "]).flat().slice(0, -1)
+    }
+}
+
+var Poster = {
+    view: function(vnode) {
+        var id = vnode.attrs.id
+        var authors = vnode.attrs.authors
+        var title = vnode.attrs.title
+        var links = vnode.attrs.links
+        var x = intros_qas.filter(function(i) {return i.id == id})
+        var intro_button = ""
+        var qa_url = jitsi_url_prefix + id
+        if (x.length==1) {
+            if (x[0].intro) {
+                intro_button = m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: x[0].intro, target: "_blank"}, "Intro")
             }
-            return m("tr", [
-                // m("td", m("a", {class: "lead", href: id+".pdf"}, "#" + id)),
-                m("td", {class: "lead"}, "#" + id),
-                m("td", [
-                    m("a", {class: "lead", href: "a/" + id + ".pdf"}, title),
-                    m("br"),
-                    a,
-                    m("br"),
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + id + ".pdf", target: "_blank"}, "Abstract"),
-                    intro_button,
-                    m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: qa_url, target: "_blank"}, "Video Q&A"),
-                ])
-            ])
+            if (x[0].qa) {
+                qa_url = x[0].qa
+            }
         }
+        return m("tr", [
+            // m("td", m("a", {class: "lead", href: id+".pdf"}, "#" + id)),
+            m("td", {class: "lead"}, "#" + id),
+            m("td", [
+                m("a", {class: "lead", href: "a/" + id + ".pdf"}, title),
+                m("br"),
+                m(Authors, {authors: authors}),
+                m("br"),
+                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + id + ".pdf", target: "_blank"}, "Abstract"),
+                intro_button,
+                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: qa_url, target: "_blank"}, "Video Q&A"),
+            ])
+        ])
     }
 }
 
@@ -237,13 +236,6 @@ function PosterSessionFactory(number, date) {
     return {
         oncreate: function() { scrollTo(0,0) },
         view: function() {
-            var l = []
-            for (p of presentations) {
-                if (withdrawn.includes(p.id))
-                    continue
-                if (p.session == "Poster session " + number)
-                    l.push(m(PosterFactory(p.id, p.authors, p.title)))
-            }
             return [m(Navigation),
                     m("main", {class: "container", id: "main"}, [
                         m("div", {class: "container"}, [
@@ -251,7 +243,12 @@ function PosterSessionFactory(number, date) {
                             m("p", {class: "lead"}, date),
                             m(TimeZoneWarning),
                         ]),
-                        m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", l)])
+                        m("table", {class: "table table-sm table-striped"}, [
+                            m(PosterTableHeader),
+                            m("tbody", presentations
+                                .filter(p => !withdrawn.includes(p.id) && p.session == `Poster session ${number}`)
+                                .map(p => m(Poster, {id: p.id, authors: p.authors, title: p.title})))
+                        ])
                     ])]
         }
     }
@@ -261,90 +258,58 @@ var PosterSession1 = PosterSessionFactory(1, "Thursday, 3 September 2020, 16:00�
 var PosterSession2 = PosterSessionFactory(2, "Friday, 4 September 2020, 14:00–15:30 (UTC+2)")
 var PosterSession3 = PosterSessionFactory(3, "Saturday, 5 September 2020, 10:00–11:30 (UTC+2)")
 
-function AbstractFactory(id, authors, title, links) {
-    return {
-        view: function() {
-            var a = authors.split("); ")
-            a = a.map(a => [a, "), "])
-            a = a.flat()
-            a.pop()
-            return m("tr", [
-                m("td", {class: "lead"}, "#" + id),
-                m("td", [
-                    m("a", {class: "lead", href: "a/" + id + ".pdf", target: "_blank"}, title),
-                    m("br"), a,
-                ])
+var Abstract = {
+    view: function(vnode) {
+        var id = vnode.attrs.id
+        var authors = vnode.attrs.authors
+        var title = vnode.attrs.title
+        var links = vnode.attrs.links
+        return m("tr", [
+            m("td", {class: "lead"}, "#" + id),
+            m("td", [
+                m("a", {class: "lead", href: "a/" + id + ".pdf", target: "_blank"}, title),
+                m("br"), m(Authors, {authors: authors}),
             ])
-        }
+        ])
+    }
+}
+
+var ProceedingsTable = {
+    view: function(vnode) {
+        var only = vnode.attrs.only
+        return m("table", {class: "table table-sm table-striped"}, [
+            m(PosterTableHeader),
+            m("tbody", presentations.filter(only)
+                .map(p => m(Abstract, {id: p.id, authors: p.authors, title: p.title})))
+        ])
     }
 }
 
 var Proceedings = {
     oncreate: function() { scrollTo(0,0) },
     view: function() {
-        
-        var keynotes = []
-        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Keynote ")})
-        for (p of abstracts) {
-            keynotes.push(m(AbstractFactory(p.id, p.authors, p.title)))
-        }
-
-        var main_talks = []
-        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Main session ")})
-        for (p of abstracts) {
-            main_talks.push(m(AbstractFactory(p.id, p.authors, p.title)))
-        }
-
-        var ss_talks = []
-        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Special session ")})
-        for (p of abstracts) {
-            ss_talks.push(m(AbstractFactory(p.id, p.authors, p.title)))
-        }
-
-        var posters1 = []
-        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Poster session 1")})
-        for (p of abstracts) {
-            if (withdrawn.includes(p.id))
-                continue
-            posters1.push(m(AbstractFactory(p.id, p.authors, p.title)))
-        }
-        var posters2 = []
-        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Poster session 2")})
-        for (p of abstracts) {
-            if (withdrawn.includes(p.id))
-                continue
-            posters2.push(m(AbstractFactory(p.id, p.authors, p.title)))
-        }
-        var posters3 = []
-        var abstracts = presentations.filter(function(p) {return p.session.startsWith("Poster session 3")})
-        for (p of abstracts) {
-            if (withdrawn.includes(p.id))
-                continue
-            posters3.push(m(AbstractFactory(p.id, p.authors, p.title)))
-        }
-        
         return [m(Navigation),
                 m("main", {class: "container", id: "main"}, [
                     m("div", {class: "container"}, [
                         m("h1", {class: "display-4"}, "Online proceedings"),
                         m("p", {class: "lead"}, "All abstracts, ordered by category (keynotes, main session talks, special session talks, posters) and by abstract ID within category.  Use your browser's search function if you're looking for something specific."),
                         m("h2", {class: "display-5"}, "Keynotes")]),
-                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", keynotes)]),
+                    m(ProceedingsTable, {only: p => p.session.startsWith("Keynote ")}),
                     m("div", {class: "container"}, [
                         m("h2", {class: "display-5"}, "Main session")]),
-                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", main_talks)]),
+                    m(ProceedingsTable, {only: p => p.session.startsWith("Main session ")}),
                     m("div", {class: "container"}, [
                         m("h2", {class: "display-5"}, "Special session")]),
-                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", ss_talks)]),
+                    m(ProceedingsTable, {only: p => p.session.startsWith("Special session ")}),
                     m("div", {class: "container"}, [
                         m("h2", {class: "display-5"}, "Poster session 1")]),
-                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters1)]),
+                    m(ProceedingsTable, {only: p => p.session.startsWith("Poster session 1") && !withdrawn.includes(p.id)}),
                     m("div", {class: "container"}, [
                         m("h2", {class: "display-5"}, "Poster session 2")]),
-                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters2)]),
+                    m(ProceedingsTable, {only: p => p.session.startsWith("Poster session 2") && !withdrawn.includes(p.id)}),
                     m("div", {class: "container"}, [
                         m("h2", {class: "display-5"}, "Poster session 3")]),
-                    m("table", {class: "table table-sm table-striped"}, [m(PosterTableHeader), m("tbody", posters3)]),
+                    m(ProceedingsTable, {only: p => p.session.startsWith("Poster session 3") && !withdrawn.includes(p.id)}),
                 ])]
 
     }
@@ -475,4 +440,3 @@ m.route(document.body, "/overview", {
     "/proceedings": Proceedings,
     "/guideline": Guideline ,
 })
-
