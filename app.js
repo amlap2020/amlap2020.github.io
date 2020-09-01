@@ -42,6 +42,7 @@ var Navigation = {
 var Overview = {
     view: function() {
         return [m(Navigation),
+                m(Announcement),
                 m("main", {class: "container", id: "main"}, 
                   m("div", {class: "container-md mb-3"}, [
                       m("h1", {class: "display-4"}, "Main Menu"),
@@ -77,8 +78,39 @@ var Overview = {
     }
 }
 
+var GatherHarrassmentAnnouncement1 = {
+    view: function() {
+        return m("div", {class: "alert alert-danger"}, 
+            "Gather service is temporarily suspended due to person who is harrassing other participants.  Gather will be back shortly.")
+    }
+}
+
+var GatherHarrassmentAnnouncement2 = {
+    view: function() {
+        return m("div", {class: "alert alert-danger"}, 
+            "Gather service is temporarily suspended due to person who is harrassing other participants.  Gather will be back shortly with a new password which we will announce in the Zoom webinar.")
+    }
+}
+
+var ZoomDownAnnouncement = {
+    view: function() {
+        return m("div", {class: "alert alert-danger"}, [
+            "We're currently experiencing problems with Zoom.  Please head over to our ",
+            m("a", {href: twitch_url, target: "_blank"}, "Twitch channel"),
+            " while we're setting up an alternative video stream.",
+            m("br"), m("br"),
+            "Speakers, your session hosts will contact you with details about how to proceed."])
+    }
+}
+
+var Announcement = ZoomDownAnnouncement
+var Announcement = GatherHarrassmentAnnouncement1
+var Announcement = GatherHarrassmentAnnouncement2
+var Announcement = ""
+
+
 var TimeZoneWarning = {
-    view: function () {
+    view: function() {
         return m("div", {class: "alert alert-warning"}, ["All times are given in UTC+2:00, i.e. Central European Summer Time.  For times in your local time zone, please import ", m("a", {href: "AMLaP2020.ics", target:"_blank"}, "our iCalendar file (.ics)"), " into your favorite calendar application."])
     }
 }
@@ -160,6 +192,7 @@ function SessionsFactory(day, date) {
         oncreate: function() { scrollTo(0,0) },
         view: function() {
             return [m(Navigation),
+                    m(Announcement),
                     m("main", {class: "container", id: "main"}, [
                         m("div", {class: "container-md mb-3"}, [
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
@@ -238,6 +271,7 @@ function PosterSessionFactory(number, date) {
         oncreate: function() { scrollTo(0,0) },
         view: function() {
             return [m(Navigation),
+                    m(Announcement),
                     m("main", {class: "container", id: "main"}, [
                         m("div", {class: "container-md mb-3"}, [
                             m("h1", {class: "display-4"}, "Poster session " + number),
@@ -290,6 +324,7 @@ var Proceedings = {
     oncreate: function() { scrollTo(0,0) },
     view: function() {
         return [m(Navigation),
+                m(Announcement),
                 m("main", {class: "container", id: "main"}, [
                     m("div", {class: "container-md mb-3"}, [
                         m("h1", {class: "display-4"}, "Online proceedings"),
@@ -320,6 +355,7 @@ var Guideline = {
     oncreate: function() { scrollTo(0,0) },
     view: function() {
         return [m(Navigation),
+                m(Announcement),
                 m("main", {class: "container", id: "main"}, [
                     m("div", {class: "container-md mb-3"}, [
                         m("h1", {class: "display-4"}, "AMLaP 2020 Conference Guide"),
