@@ -206,7 +206,7 @@ var Poster = {
         var authors = vnode.attrs.authors
         var title = vnode.attrs.title
         var links = vnode.attrs.links
-        var x = intros_qas.filter(function(i) {return i.id == id})
+        var x = intros_qas.filter(function(i) {return i.id == id}).slice(-1)
         var intro_button = ""
         var qa_url = jitsi_url_prefix + id
         if (x.length==1) {
@@ -377,7 +377,7 @@ var Guideline = {
                             m("li", "If you'd like to ask a question during a Q&A following a talk, please use Zoom."),
                         ]),
                         m("p", m("a", {class: "btn btn-primary btn mr-1", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"])),
-                        m("h2", "How can I use Gather to interact socially with other participants?"),
+                        m("h2", "How can I use Gather to socialize with other participants?"),
                         m("ul", [
                             m.trust("<center style=\"margin: 2em;\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/01wxN1mEWbY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></center>"),
                             m("li", "Gather is a virtual conference building in which you can walk around and meet people.  We use Gather as our atrium, a place were participants can chat casually, catch up with each other, discuss presentations, ask presenters further questions, and so on.  Gather looks a little silly at first, but it works quite well and can be great fun.  So give it a try!"),
@@ -415,9 +415,7 @@ var Guideline = {
                             m("li", [
                                 "Speak to a AMLaP team members on ",
                                 m("a", {href: gather_url, target: "_blank"}, "Gather"),
-                                " or in the ",
-                                m("a", {href: twitch_url, target: "_blank"}, "Twitch chat"),
-                                ".  Team members can be recognized by their screen names: ", m("i", "Full Name (AMLaP Team)")
+                                ".  Team members can be recognized by their screen names: ", m("i", "AMLaP Team: Last name, First name")
                             ]),
                             m("li", ["Or send us an e-mail at: ", m("a", {href:"mailto:info@amlap2020.org"}, "info@amlap2020.org")]),
                         ]),
