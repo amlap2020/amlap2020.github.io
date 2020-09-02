@@ -254,7 +254,7 @@ var Poster = {
             // m("td", m("a", {class: "lead", href: id+".pdf"}, "#" + id)),
             m("td", {class: "lead"}, "#" + id),
             m("td", [
-                m("a", {class: "lead", href: "a/" + id + ".pdf"}, title),
+                m("a", {class: "lead", href: "a/" + id + ".pdf", target: "_blank"}, title),
                 m("br"),
                 m(Authors, {authors: authors}),
                 m("br"),
