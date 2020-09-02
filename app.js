@@ -448,7 +448,7 @@ var Guideline = {
                             m("li", [
                                 "Speak to a AMLaP team members on ",
                                 m("a", {href: gather_url, target: "_blank"}, "Gather"),
-                                ".  Team members can be recognized by their screen names: ", m("i", "\"AMLaP Team: Last Name, First Name\"")
+                                ".  Team members can be recognized by their screen names: ", m("i", "\"AMLaP Last Name, First Name\"")
                             ]),
                             m("li", ["Or send us an e-mail at: ", m("a", {href:"mailto:info@amlap2020.org"}, "info@amlap2020.org")]),
                         ]),
