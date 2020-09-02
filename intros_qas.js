@@ -59,6 +59,7 @@ var intros_qas = [
 {id:"58", intro:"https://osf.io/yrdbm/", qa:null},
 {id:"48", intro:"https://osf.io/3q5pt/", qa:null},
 {id:"44", intro:"https://osf.io/d6yh2/quickfiles", qa:null},
+{id:"49", intro:"https://osf.io/y3qxa/", qa:null},
 {id:"207", intro:"https://osf.io/nq3kz/?view_only=06cd1d6bd8a0438a8d58bf9ffb4b2b30", qa:null},
 {id:"125", intro:"https://interactivetask.tcoding.tech/amlap2020AMLaP%202020_DisConIntro_Chi%20Zhang_Version1.mp4", qa:null},
 {id:"80", intro:"https://osf.io/g25jr/", qa:null},
