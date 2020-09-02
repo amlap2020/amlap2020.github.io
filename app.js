@@ -80,14 +80,14 @@ var Overview = {
 
 var GatherHarrassmentAnnouncement1 = {
     view: function() {
-        return m("div", {class: "alert alert-danger"}, 
+        return m("div", {class: "alert alert-danger"},
             "Gather service is temporarily suspended due to person who is harrassing other participants.  Gather will be back shortly.")
     }
 }
 
 var GatherHarrassmentAnnouncement2 = {
     view: function() {
-        return m("div", {class: "alert alert-danger"}, 
+        return m("div", {class: "alert alert-danger"},
             "Gather service is temporarily suspended due to person who is harrassing other participants.  Gather will be back shortly with a new password which we will announce in the Zoom webinar.")
     }
 }
@@ -439,7 +439,7 @@ var Guideline = {
                             // m("li", "If presenters wish to use an alternative platform for their poster presentation, they can supply us with a link ahead of the conference when registering on Zoom and we'll include it in the program  instead of the Jitsi button.  In case you make use of this option, please make extra sure that the link works properly."),
                             m("li", ["Poster presenters were invited to prepare short intros to their posters (e.g., a video or slides).  Please use the ",
                                      m(m.route.Link, {class: "btn btn-primary btn-sm py-0 mr-1", href: "guideline"}, "Intro"),
-                                     "buttons in the poster overviews to access them."]), 
+                                     "buttons in the poster overviews to access them."]),
                         ]),
                         m("h2", "How can I ensure good audio quality when using Zoom, Gather, and Jitsi?"),
                         m("p", "Before joining live discussion or asking a question, please ensure the following:"),
