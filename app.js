@@ -422,6 +422,7 @@ var Guideline = {
                             m("li", "If you are a senior researcher, please be approachable to colleagues and particularly early career researchers and students."),
                             m("li", "If you are an early career researcher or student, please don't hesitate to politely approach more senior colleagues in the social chat on Gather."),
                             m("li", "Gather will be available 24h but moderators will be present only during the programme (9:00 to 18:00 CEST)."),
+                            m("li", "AMLaP team members will have screen names starting with \"AMLaP\". Feel free to approach them with questions.  There is also a help desk to the left of the welcome sign at the top (North) of the map."),
                         ]),
                         m("p", m("a", {class: "btn btn-primary btn mr-1", href: gather_url, target: "_blank"}, [Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])),
                         m("h2", "How can I attend live poster presentations?"),
