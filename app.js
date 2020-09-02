@@ -141,6 +141,11 @@ var Session = {
                 session,
                 m("br"),
                 m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf", target:"_blank"}, "Abstract")]
+        } else if (session.match(/Opening remarks/)){
+            session =
+                m("center",
+                  m("span", {class: "lead", style: "font-weight: bold"},
+                    m("a", {href:"a/openingremarks.pdf", target:"_blank"}, session)))
         } else if (session.match(/Keynote [1-5].+/)){
             var p = presentations.filter(function(p) {return p.id == s.id})[0]
             session = [
