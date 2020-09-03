@@ -11,6 +11,7 @@ var intros_qas = [
 {id:"92", intro:"https://osf.io/6dgyu/", qa:null},
 {id:"110", intro:"https://osf.io/e96k5/", qa:null},
 {id:"330", intro:"https://osf.io/8nw96/", qa:null},
+{id:"173", intro:"https://mfr.de-1.osf.io/render?url=https://osf.io/yzuva/?direct%26mode=render%26action=download%26mode=render", qa:null},
 {id:"7", intro:"https://osf.io/vtxz9/", qa:null},
 {id:"99", intro:"https://mfr.osf.io/render?url=https%3A%2F%2Fosf.io%2F9wgst%2Fdownload", qa:null},
 {id:"19", intro:"https://osf.io/ca3vk/", qa:null},
