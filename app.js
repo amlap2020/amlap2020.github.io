@@ -374,7 +374,7 @@ var Guideline = {
                             m("li", ["For poster presentations we offer Jitsi rooms.  Click the buttons ",
                                      m(m.route.Link, {class: "btn btn-primary btn-sm py-0 mr-1", href: "guideline"}, "Video Q&A"),
                                      "in the program to enter."]),
-                            m("li", ["On all platforms, please use the following format for your screen name: ", m("i", "\"Last Name, First Name (Affilitation)\""), " or just ", m("i", "\"Last Name, First Name\""), " if you currently don't have an affilitation."]),
+                            m("li", ["On all platforms, please use the following format for your screen name: ", m("i", "\"Full Name (Affilitation)\""), " or just ", m("i", "\"Full Name\""), " if you currently don't have an affilitation."]),
                             m("li", "Be nice and have fun! 🎉"),
                         ]),
                         m("h2", "Does the conference have a code of conduct?"),
@@ -420,7 +420,7 @@ var Guideline = {
                             m.trust("<center style=\"margin: 2em;\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/01wxN1mEWbY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></center>"),
                             m("li", "Gather is a virtual conference building in which you can walk around and meet people.  We use Gather as our atrium, a place were participants can casually chat, catch up with each other, discuss presentations, ask presenters further questions, and so on.  Gather looks a little silly at first, but it works quite well and can be great fun.  So give it a try!"),
                             m("li", "When you steer your avatar close to a person, you will automatically be connected with them via video chat.  Don't be shy!"),
-                            m("li", ["To locate someone use the search function in the 'Participants' box on the right.  However, note that the search feature will only show people if your search term matches the beginning of their screen name.  (Yes, stupid.  Gather are working to fix it.)  So it's best to search for people's last names (since the conventional format is: ", m("i", "\"Last Name, First Name (Affiliation)\")")]),
+                            m("li", "To locate someone use the search function in the 'Participants' box on the right, click on the person, and then click on 'locate'."),
                             m("li", "Also note the toolbar at the lower left which has some useful functions and settings."),
                             m("li", "In addition to video chat, Gather can also be used to send private text messages."),
                             m("li", "There is also a global chat for broadcasting messages to everyone.  Use it sparingly."),
@@ -454,7 +454,7 @@ var Guideline = {
                             m("li", [
                                 "Speak to a AMLaP team members on ",
                                 m("a", {href: gather_url, target: "_blank"}, "Gather"),
-                                ".  Team members can be recognized by their screen names: ", m("i", "\"AMLaP Last Name, First Name\"")
+                                ".  Team members can be recognized by their screen names: ", m("i", "\"AMLaP Full Name\"")
                             ]),
                             m("li", ["Or send us an e-mail at: ", m("a", {href:"mailto:info@amlap2020.org"}, "info@amlap2020.org")]),
                         ]),
