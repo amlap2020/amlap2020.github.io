@@ -202,7 +202,7 @@ function SessionsFactory(day, date) {
                         m("div", {class: "container-md mb-3"}, [
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
-                            m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), " Join us on Zoom"]),
+                            m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), "Register on Zoom"]),
                             m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"]),
                             m("br"), m("br"), m(TimeZoneWarning),
                         ]),
