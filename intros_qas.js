@@ -104,6 +104,7 @@ var intros_qas = [
 {id:"50", intro:"https://osf.io/unwyj/", qa:null},
 {id:"245", intro:"https://osf.io/prxgn/", qa:null},
 {id:"229", intro:"https://osf.io/fj834/", qa:null},
+{id:"252", intro:"https://osf.io/na7rk/", qa:null},
 {id:"137", intro:"https://osf.io/tsed8/?view_only=be1058af808a425f96c7c509039c8a28", qa:null},
 {id:"26", intro:"https://docs.qq.com/slide/DU3ZuYnZMQlRic01Y", qa:"Tencent Conference"},
 {id:"114", intro:"https://osf.io/xu9ms/", qa:null},
