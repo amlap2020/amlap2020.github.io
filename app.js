@@ -146,7 +146,7 @@ var Session = {
                 m("center",
                   m("span", {class: "lead", style: "font-weight: bold"},
                     m("a", {href:"a/openingremarks.pdf", target:"_blank"}, session)))
-        } else if (session.match(/Keynote [1-5].+/)){
+        } else if (session.match(/Keynote [1-4].+/)){
             var p = presentations.filter(function(p) {return p.id == s.id})[0]
             session = [
                 m("span", {class: "lead", style: "font-weight: bold"}, session),
@@ -154,6 +154,13 @@ var Session = {
                 m("span", {class: "lead"}, m("a", {href: "a/" + p.id + ".pdf", target:"_blank"}, p.title)),
                 m("br"),
                 m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + p.id + ".pdf", target:"_blank"}, "Abstract")]
+        } else if (session.match(/Keynote 5.+/)){
+            var p = presentations.filter(function(p) {return p.id == s.id})[0]
+            session = [
+                m("span", {class: "lead", style: "font-weight: bold"}, "Keynote 5: cancelled"),
+                m("br"),
+                m("span", {class: "lead"}, "Let's chat on Gather!")
+            ]
         } else if (session.startsWith("MS Chair:")) {
             session = 
                 m("center",
