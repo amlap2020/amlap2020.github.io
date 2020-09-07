@@ -5,6 +5,12 @@ var twitch_url = "https://twitch.tv/amlap2020"
 var gather_url = "https://gather.town/65ZDsKs7IS9aj9V1/amlap2020"
 var jitsi_url_prefix = "https://meet.jit.si/AMLaP2020_poster_"
 
+var twitch_recordings = [
+    "https://www.twitch.tv/videos/729893069",
+    "https://www.twitch.tv/videos/730889999",
+    "https://www.twitch.tv/videos/731930258",
+]
+
 // The last two are withdrawn because no final abstract was submitted.
 var withdrawn = ["311", "325", "271", "324", "5", "296", "306", "144", "78", "3", "36", "287", "203", "294", "64", "44"]
 
@@ -45,26 +51,28 @@ var Overview = {
                 m(Announcement),
                 m("main", {class: "container", id: "main"}, 
                   m("div", {class: "container-md mb-3"}, [
-                      m("h1", {class: "display-4"}, "Main Menu"),
-                      m("p", {class: "lead"}, "First things first:"),
-                      m(m.route.Link, {class: "btn btn-info btn-lg btn-block", href: "guideline"}, [
-                          Icon("map"), " Conference guide"]), m("br"),
-                      m("a", {class: "btn btn-primary btn-lg btn-block", href: zoomregistration_url, target: "_blank"}, [
-                          Icon("pencil-square"), " Register for Zoom webinar"]), m("br"),
                       m("p", {class: "lead"}, "Programme:"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions1"}, [
-                          Icon("chat-text"), " Talks day 1"]), m("br"),
+                          Icon("chat-text"), " Schedule day 1"]), m("br"),
+                      m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[0], target:"_blank"}, [
+                          Icon("camera-video"), " Watch talks day 1"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_1"}, [
-                          Icon("easel"), " Posters day 1"]), m("br"),
+                          Icon("easel"), " Posters day 1"]), m("br"), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions2"}, [
-                          Icon("chat-text"), " Talks day 2"]), m("br"),
+                          Icon("chat-text"), " Schedule day 2"]), m("br"),
+                      m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[1], target:"_blank"}, [
+                          Icon("camera-video"), " Watch talks day 2"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_2"}, [
-                          Icon("easel"), " Posters day 2"]), m("br"),
+                          Icon("easel"), " Posters day 2"]), m("br"), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions3"}, [
-                          Icon("chat-text"), " Talks day 3"]), m("br"),
+                          Icon("chat-text"), " Schedule day 3"]), m("br"),
+                      m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[2], target:"_blank"}, [
+                          Icon("camera-video"), " Watch talks day 3"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_3"}, [
                           Icon("easel"), " Posters day 3"]), m("br"),
                       m("p", {class: "lead"}, "Conference bag:"),
+                      m(m.route.Link, {class: "btn btn-info btn-lg btn-block", href: "guideline"}, [
+                          Icon("map"), " Conference guide"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "proceedings"}, [
                           Icon("book"), " Online proceedings"]), m("br"),
                       m("a", {class: "btn btn-primary btn-lg btn-block", href: "AMLaP2020.ics", target:"_blank"}, [
@@ -146,6 +154,11 @@ var Session = {
                 m("center",
                   m("span", {class: "lead", style: "font-weight: bold"},
                     m("a", {href:"a/openingremarks.pdf", target:"_blank"}, session)))
+        } else if (session.match(/Closing remarks/)){
+            session =
+                m("center",
+                  m("span", {class: "lead", style: "font-weight: bold"},
+                    m("a", {href:"a/closingremarks.pdf", target:"_blank"}, session)))
         } else if (session.match(/Keynote [1-4].+/)){
             var p = presentations.filter(function(p) {return p.id == s.id})[0]
             session = [
@@ -157,9 +170,11 @@ var Session = {
         } else if (session.match(/Keynote 5.+/)){
             var p = presentations.filter(function(p) {return p.id == s.id})[0]
             session = [
-                m("span", {class: "lead", style: "font-weight: bold"}, "Keynote 5: cancelled"),
+                m("span", {class: "lead", style: "font-weight: bold"}, "Keynote 5: Postponed"),
                 m("br"),
-                m("span", {class: "lead"}, "Let's chat on Gather!")
+                m("span", {class: "lead"}, ["Watch video ",
+                                            m("a", {href:"v/k5.mp4", target:"_blank"}, "here"),
+                                           "."])
             ]
         } else if (session.startsWith("MS Chair:")) {
             session = 
@@ -209,8 +224,8 @@ function SessionsFactory(day, date) {
                         m("div", {class: "container-md mb-3"}, [
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
-                            m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), " Register on Zoom"]),
-                            m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: twitch_url, target: "_blank"}, [Icon("tv"), " Watch on Twitch.tv"]),
+                            // m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), " Register on Zoom"]),
+                            m("a", {class: "btn btn-primary btn mr-1", href: twitch_recordings[day-1], target: "_blank"}, [Icon("tv"), " Watch recording on Twitch.tv"]),
                             m("br"), m("br"), m(TimeZoneWarning),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [

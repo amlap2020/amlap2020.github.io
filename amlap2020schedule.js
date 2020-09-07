@@ -56,7 +56,7 @@ var amlap2020schedule = [
 {day:"3", start:"15:00", end:"15:30", session:"Special session 3, talk 8", id:157},
 {day:"3", start:"15:30", end:"16:00", session:"Special session 3, talk 9", id:319},
 {day:"3", start:"16:00", end:"16:15", session:"15min break", id:null},
-{day:"3", start:"16:15", end:"17:00", session:"Keynote 5: Jeff Rouder", id:k5},
+{day:"3", start:"", end:"", session:"Keynote 5: Jeff Rouder", id:k5},
 {day:"3", start:"16:15", end:"16:45", session:"Closing remarks", id:null},
 {day:"3", start:"16:45", end:"18:00", session:"Social chat", id:null},
 ]
