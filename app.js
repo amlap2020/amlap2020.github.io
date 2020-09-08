@@ -196,14 +196,18 @@ var Session = {
             session = m(m.route.Link, {href: "poster_session_3", class: "lead", style: "font-weight: bold"}, session)
         } else if (session.match(/Social chat/)) {
             session = m("center", [
-                m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
-                m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
-                    Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])])
+                m("span", {class: "lead", style: "font-weight: bold"}, session),
+                // m("br"),
+                // m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
+                //     Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])
+            ])
         } else if (session.match(/.+ break/)) {
             session = m("center", [
-                m("span", {class: "lead", style: "font-weight: bold"}, session), m("br"),
-                m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
-                    Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])])
+                m("span", {class: "lead", style: "font-weight: bold"}, session),
+                // m("br"),
+                // m("a", {class: "btn btn-primary btn-sm mr-1", href: gather_url, target: "_blank"}, [
+                //     Icon("emoji-laughing"), " Join us on Gather", " ", Icon("people-fill")])
+            ])
         } else {
             session = m("center", {class: "lead", style: "font-weight: bold"}, session)
         }
@@ -287,7 +291,7 @@ var Poster = {
                 m("br"),
                 m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + id + ".pdf", target: "_blank"}, "Abstract"),
                 intro_button,
-                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: qa_url, target: "_blank"}, "Video Q&A"),
+                // m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: qa_url, target: "_blank"}, "Video Q&A"),
             ])
         ])
     }
