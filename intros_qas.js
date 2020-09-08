@@ -245,4 +245,5 @@ var intros_qas = [
 {id:"243", intro:"https://osf.io/5jzq6/", qa:null},
 {id:"226", intro:"https://osf.io/pfth2/", qa:null},
 {id:"316", intro:"https://osf.io/du7ay/", qa:null},
+{id:"152", intro:"https://osf.io/y83c6/?view_only=5da590d9a6684c269593c41e67da0059", qa:null},
 ]
