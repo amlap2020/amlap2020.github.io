@@ -1,10 +1,12 @@
-var k1 = "k1"
-var k2 = "k2"
-var k3 = "k3"
-var k4 = "k4"
-var k5 = "k5"
+var intro = "intro";
+var k1 = "k1";
+var k2 = "k2";
+var k3 = "k3";
+var k4 = "k4";
+var k5 = "k5";
+var outro = "outro";
 var amlap2020schedule = [
-{day:"1", start:"09:00", end:"09:15", session:"Opening remarks", id:null},
+{day:"1", start:"09:00", end:"09:15", session:"Opening remarks", id:intro},
 {day:"1", start:"09:15", end:"10:00", session:"Keynote 1: Andrea E. Martin", id:k1},
 {day:"1", start:"10:00", end:"11:30", session:"SS Chair: Stefan Frank", id:null},
 {day:"1", start:"10:00", end:"10:30", session:"Special session 1, talk 1", id:143},
@@ -59,4 +61,4 @@ var amlap2020schedule = [
 {day:"3", start:"", end:"", session:"Keynote 5: Jeff Rouder", id:k5},
 {day:"3", start:"16:15", end:"16:45", session:"Closing remarks", id:null},
 {day:"3", start:"16:45", end:"18:00", session:"Social chat", id:null},
-]
+];

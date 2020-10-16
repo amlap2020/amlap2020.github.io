@@ -136,6 +136,7 @@ var Session = {
     view: function(vnode) {
         var s = vnode.attrs.sessionData
         var session = s.session
+        var video = videos.filter(function(i) {return i.id == s.id})[0]
         if (s.id != null && !isNaN(+s.id)) {  // Regular Talk
             var p = presentations.filter(function(p) {return p.id == s.id})[0]
             var badge = []
@@ -148,7 +149,8 @@ var Session = {
             session = [
                 session,
                 m("br"),
-                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf", target:"_blank"}, "Abstract")]
+                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + s.id + ".pdf", target:"_blank"}, "Abstract"),
+                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: video.link, target:"_blank"}, "Video")]
         } else if (session.match(/Opening remarks/)){
             session =
                 m("center",
@@ -159,14 +161,15 @@ var Session = {
                 m("center",
                   m("span", {class: "lead", style: "font-weight: bold"},
                     m("a", {href:"a/closingremarks.pdf", target:"_blank"}, session)))
-        } else if (session.match(/Keynote [1-4].+/)){
+        } else if (session.match(/Keynote [1-5].+/)){
             var p = presentations.filter(function(p) {return p.id == s.id})[0]
             session = [
                 m("span", {class: "lead", style: "font-weight: bold"}, session),
                 m("br"),
                 m("span", {class: "lead"}, m("a", {href: "a/" + p.id + ".pdf", target:"_blank"}, p.title)),
                 m("br"),
-                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + p.id + ".pdf", target:"_blank"}, "Abstract")]
+                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: "a/" + p.id + ".pdf", target:"_blank"}, "Abstract"),
+                m("a", {class: "btn btn-primary btn-sm py-0 mr-1", href: video.link, target:"_blank"}, "Video")]
         } else if (session.match(/Keynote 5.+/)){
             var p = presentations.filter(function(p) {return p.id == s.id})[0]
             session = [
@@ -229,8 +232,8 @@ function SessionsFactory(day, date) {
                             m("h1", {class: "display-4"}, "Sessions Day " + day),
                             m("p", {class: "lead"}, date),
                             // m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), " Register on Zoom"]),
-                            m("a", {class: "btn btn-primary btn mr-1", href: twitch_recordings[day-1], target: "_blank"}, [Icon("tv"), " Watch recording on Twitch.tv"]),
-                            m("br"), m("br"), m(TimeZoneWarning),
+                            // m("a", {class: "btn btn-primary btn mr-1", href: twitch_recordings[day-1], target: "_blank"}, [Icon("tv"), " Watch recording on Twitch.tv"]),
+                            // m("br"), m("br"), m(TimeZoneWarning),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
                             m(SessionsTableHeader),
