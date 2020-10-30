@@ -52,22 +52,17 @@ var Overview = {
                 m("main", {class: "container", id: "main"}, 
                   m("div", {class: "container-md mb-3"}, [
                       m("p", {class: "lead"}, "Programme:"),
+                      m(VideoNote), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions1"}, [
                           Icon("chat-text"), " Talk schedule day 1"]), m("br"),
-                      // m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[0], target:"_blank"}, [
-                      //     Icon("camera-video"), " Watch talks day 1"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_1"}, [
                           Icon("easel"), " Posters day 1"]), m("br"), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions2"}, [
                           Icon("chat-text"), " Talk schedule day 2"]), m("br"),
-                      // m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[1], target:"_blank"}, [
-                      //     Icon("camera-video"), " Watch talks day 2"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_2"}, [
                           Icon("easel"), " Posters day 2"]), m("br"), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions3"}, [
                           Icon("chat-text"), " Talk schedule day 3"]), m("br"),
-                      // m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[2], target:"_blank"}, [
-                      //     Icon("camera-video"), " Watch talks day 3"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_3"}, [
                           Icon("easel"), " Posters day 3"]), m("br"),
                       m("p", {class: "lead"}, "Conference bag:"),
@@ -116,6 +111,12 @@ var Announcement = GatherHarrassmentAnnouncement1
 var Announcement = GatherHarrassmentAnnouncement2
 var Announcement = ""
 
+
+var VideoNote = {
+    view: function() {
+        return m("div", {class: "alert alert-warning"}, ["To watch the recorded talks, visit the talk schedules and use the ", m("a", {class: "btn btn-primary btn-sm py-0 mr-1", style:"color: white;", target:"_blank"}, "Video"), " buttons."])
+    }
+}
 
 var TimeZoneWarning = {
     view: function() {
@@ -234,6 +235,7 @@ function SessionsFactory(day, date) {
                             // m("a", {class: "btn btn-primary btn mr-1", style:"margin-bottom: 1em", href: zoom_url, target: "_blank"}, [Icon("tv"), " Register on Zoom"]),
                             // m("a", {class: "btn btn-primary btn mr-1", href: twitch_recordings[day-1], target: "_blank"}, [Icon("tv"), " Watch recording on Twitch.tv"]),
                             // m("br"), m("br"), m(TimeZoneWarning),
+                            m(VideoNote),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
                             m(SessionsTableHeader),
@@ -310,7 +312,8 @@ function PosterSessionFactory(number, date) {
                         m("div", {class: "container-md mb-3"}, [
                             m("h1", {class: "display-4"}, "Poster session " + number),
                             m("p", {class: "lead"}, date),
-                            m(TimeZoneWarning),
+                            // m(TimeZoneWarning),
+                            m(VideoNote),
                         ]),
                         m("table", {class: "table table-sm table-striped"}, [
                             m(PosterTableHeader),
