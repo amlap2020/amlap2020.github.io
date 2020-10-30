@@ -53,21 +53,21 @@ var Overview = {
                   m("div", {class: "container-md mb-3"}, [
                       m("p", {class: "lead"}, "Programme:"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions1"}, [
-                          Icon("chat-text"), " Schedule day 1"]), m("br"),
-                      m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[0], target:"_blank"}, [
-                          Icon("camera-video"), " Watch talks day 1"]), m("br"),
+                          Icon("chat-text"), " Talk schedule day 1"]), m("br"),
+                      // m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[0], target:"_blank"}, [
+                      //     Icon("camera-video"), " Watch talks day 1"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_1"}, [
                           Icon("easel"), " Posters day 1"]), m("br"), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions2"}, [
-                          Icon("chat-text"), " Schedule day 2"]), m("br"),
-                      m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[1], target:"_blank"}, [
-                          Icon("camera-video"), " Watch talks day 2"]), m("br"),
+                          Icon("chat-text"), " Talk schedule day 2"]), m("br"),
+                      // m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[1], target:"_blank"}, [
+                      //     Icon("camera-video"), " Watch talks day 2"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_2"}, [
                           Icon("easel"), " Posters day 2"]), m("br"), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "sessions3"}, [
-                          Icon("chat-text"), " Schedule day 3"]), m("br"),
-                      m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[2], target:"_blank"}, [
-                          Icon("camera-video"), " Watch talks day 3"]), m("br"),
+                          Icon("chat-text"), " Talk schedule day 3"]), m("br"),
+                      // m("a", {class: "btn btn-primary btn-lg btn-block", href: twitch_recordings[2], target:"_blank"}, [
+                      //     Icon("camera-video"), " Watch talks day 3"]), m("br"),
                       m(m.route.Link, {class: "btn btn-primary btn-lg btn-block", href: "poster_session_3"}, [
                           Icon("easel"), " Posters day 3"]), m("br"),
                       m("p", {class: "lead"}, "Conference bag:"),
